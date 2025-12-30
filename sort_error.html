@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Codes Top Failure</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        #mainContainer {
+            width: 90%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #controlPanel {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #controlPanel input, #controlPanel button, #controlPanel select, #controlPanel label {
+            flex: 1 1 150px;
+            max-width: 220px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        #controlPanel input[type="file"] {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        #controlPanel button {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+        }
+        #controlPanel button:hover {
+            background-color: #0056b3;
+        }
+        #displayArea {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        #tableContainer, #chartContainer {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainContainer">
+        <h1>Error Codes Top Failure</h1>
+        <div id="controlPanel">
+            <input type="file" id="fileInput" accept=".xls,.xlsx" />
+            <label for="displayCount">Display Top:</label>
+            <select id="displayCount">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="all">All</option>
+            </select>
+            <button onclick="displayTopN()">Display</button>
+            <button onclick="downloadTopN()">Download Top N</button>
+            <button onclick="downloadAllData()">Download All Data</button>
+            <label for="chartStyle">Chart Style:</label>
+            <select id="chartStyle" onchange="updateChartStyle()">
+                <option value="regular">Regular Pie</option>
+                <option value="donut">Donut Pie</option>
+                <option value="exploded">Exploded Pie</option>
+            </select>
+            <label for="barChartStyle">Bar Chart Style:</label>
+            <select id="barChartStyle" onchange="updateChartStyle()">
+                <option value="">None</option>
+                <option value="group">Grouped</option>
+                <option value="stacked">Stacked</option>
+                <option value="horizontal">Horizontal</option>
+            </select>
+        </div>
+
+        <div id="displayArea">
+            <div id="tableContainer">
+                <h2>Top N Error Codes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Code</th>
+                            <th>Error Description</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultTableBody">
+                        <!-- Results will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <p id="totalFailures" style="text-align: center;"></p>
+            <div id="chartContainer">
+                <h2>Chart</h2>
+                <div id="chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Plotly and the xlsx library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let topNEntries = [];
+        let jsonData = [];
+        let currentChartStyle = 'regular';
+
+        document.getElementById('fileInput').addEventListener('change', function() {
+            resetState();
+        });
+
+        function resetState() {
+            topNEntries = [];
+            jsonData = [];
+            currentChartStyle = 'regular';
+            document.getElementById('resultTableBody').innerHTML = '';
+            Plotly.purge('chart');
+        }
+
+        function displayTopN() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select an Excel file');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+                if (!jsonData.length || !jsonData[0].ErrorCode || !jsonData[0].ErrorDescription || !jsonData[0].SerialNumber) {
+                    alert('The Excel file must contain ErrorCode, ErrorDescription, and SerialNumber columns');
+                    return;
+                }
+
+                const countMap = {};
+
+                jsonData.forEach(row => {
+                    const errorCode = row.ErrorCode;
+                    const errorDescription = row.ErrorDescription;
+                    const match = errorCode.match(/(\d{3})$/);
+
+                    let displayCode;
+                    if (match) {
+                        displayCode = `EC_${match[1]}`;
+                    } else {
+                        displayCode = errorCode;
+                    }
+
+                    let foundSimilar = false;
+                    for (let key in countMap) {
+                        if (key.startsWith(displayCode)) {
+                            const commonDescription = getUniqueDescription(countMap[key].errorDescription, errorDescription);
+                            if (commonDescription) {
+                                countMap[key].errorDescription = commonDescription;
+                                countMap[key].count++;
+                                foundSimilar = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!foundSimilar) {
+                        countMap[`${displayCode}|${errorDescription}`] = {
+                            errorCode: displayCode,
+                            errorDescription: cleanDescription(errorDescription),
+                            count: 1
+                        };
+                    }
+                });
+
+                const sortedEntries = Object.values(countMap).sort((a, b) => b.count - a.count);
+                const totalFailures = sortedEntries.reduce((acc, current) => acc + current.count, 0);
+                document.getElementById('totalFailures').textContent = `Total Failures: ${totalFailures}`;
+
+                const displayCount = document.getElementById('displayCount').value;
+                const n = displayCount === 'all' ? sortedEntries.length : parseInt(displayCount, 10);
+                topNEntries = sortedEntries.slice(0, n);
+
+                const tbody = document.querySelector('#resultTableBody');
+                tbody.innerHTML = '';
+
+                topNEntries.forEach(({ errorCode, errorDescription, count }) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${escapeHTML(errorCode)}</td>
+                        <td>${escapeHTML(errorDescription)}</td>
+                        <td></td>
+                    `;
+                    const link = document.createElement('a');
+                    link.textContent = count;
+                    link.href = "#";
+                    link.onclick = function() {
+                        downloadErrorDetails(escapeHTML(errorCode));
+                        return false;
+                    };
+
+                    const countTd = row.querySelector('td:last-child');
+                    countTd.appendChild(link);
+
+                    tbody.appendChild(row);
+                });
+
+                updateChartStyle();
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        function cleanDescription(description) {
+            return description
+                .replace(/\b(\w+)[\d._{}\[\]]+\W*/g, '$1 ')
+                .replace(/[_{}\[\].]/g, '')
+                .replace(/\bGPU\d+0\d+0\d+0\b/g, '')
+                .replace(/\b\d{4}_\d{2}_\d{2}\b/g, '')
+                .replace(/\b[\d.]+e?-?\d*\b/g, '')
+                .replace(/\[\d+_\d+_\d+\]/g, '')
+                .replace(/\b\d{1,4}\b/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function getUniqueDescription(desc1, desc2) {
+            const combinedSet = new Set(desc1.split(' '));
+            const newWords = cleanDescription(desc2).split(' ');
+
+            newWords.forEach(word => combinedSet.add(word));
+            return Array.from(combinedSet).join(' ');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#39;');
+        }
+
+        function downloadErrorDetails(errorCode) {
+            const matchingRows = jsonData.filter(row => {
+                const displayCode = row.ErrorCode.match(/(\d{3})$/) ? `EC_${row.ErrorCode.match(/(\d{3})$/)[1]}` : row.ErrorCode;
+                return displayCode === errorCode;
+            });
+
+            if (matchingRows.length === 0) {
+                alert('No matching data found for the selected error details.');
+                return;
+            }
+
+            const worksheet = XLSX.utils.json_to_sheet(matchingRows);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Error Details');
+
+            XLSX.writeFile(workbook, `${errorCode}_details.xlsx`);
+        }
+
+        function drawPieChart() {
+            const values = topNEntries.map(entry => entry.count);
+            const labels = topNEntries.map(entry => entry.errorCode);
+
+            const holeValue = currentChartStyle === 'donut' ? 0.4 : 0;
+            const pullValue = currentChartStyle === 'exploded' ? 0.1 : 0;
+
+            const pieData = [{
+                type: "pie",
+                values: values,
+                labels: labels,
+                hoverinfo: "label+percent+name",
+                textinfo: "label+percent",
+                textposition: "inside",
+                hole: holeValue,
+                pull: labels.map(() => pullValue),
+                marker: {
+                    colors: Plotly.d3.scale.category20().range()
+                }
+            }];
+
+            const displayCount = document.getElementById('displayCount').value;
+            const chartTitle = displayCount === 'all' ? "All Error Codes" : `Top ${displayCount} Error Codes`;
+
+            const layout = {
+                title: {
+                    text: chartTitle,
+                    x: 0.5,
+                    xanchor: 'center',
+                    yanchor: 'top',
+                },
+                showlegend: true,
+                legend: {
+                    orientation: "h",
+                    x: 0.5,
+                    xanchor: 'center',
+                    y: -0.2,
+                },
+                margin: { t: 80, l: 20, r: 20, b: 60 },
+                width: 500,
+                height: 500
+            };
+
+            Plotly.newPlot('chart', pieData, layout);
+        }
+
+        function drawBarChart() {
+            const barType = document.getElementById('barChartStyle').value;
+
+            if (!barType) {
+                Plotly.purge('chart');
+                return;
+            }
+
+            const values = topNEntries.map(entry => entry.count);
+            const labels = topNEntries.map(entry => entry.errorCode);
+
+            const barData = [
+                {
+                    name: 'Error Counts',
+                    type: "bar",
+                    x: barType === "horizontal" ? values : labels,
+                    y: barType === "horizontal" ? labels : values,
+                    orientation: barType === "horizontal" ? "h" : "v",
+                    marker: {
+                        color: Plotly.d3.scale.category20().range()
+                    }
+                }
+            ];
+
+            const displayCount = document.getElementById('displayCount').value;
+            const chartTitle = displayCount === 'all' ? "All Error Codes" : `Top ${displayCount} Error Codes`;
+
+            const layout = {
+                title: {
+                    text: chartTitle,
+                    x: 0.5,
+                    xanchor: 'center',
+                    yanchor: 'top'
+                },
+                barmode: barType === "stacked" ? "stack" : "group",
+                margin: { t: 80, l: 60, r: 20, b: 100 },
+                automargin: true,
+                xaxis: {
+                    automargin: true,
+                    tickangle: barType === "horizontal" ? 0 : -45
+                },
+                yaxis: {
+                    automargin: true
+                },
+                width: 500,
+                height: 500
+            };
+
+            Plotly.newPlot('chart', barData, layout);
+        }
+
+        function updateChartStyle() {
+            const pieChartStyle = document.getElementById('chartStyle').value;
+            const barChartStyle = document.getElementById('barChartStyle').value;
+
+            currentChartStyle = pieChartStyle;
+
+            if (barChartStyle) {
+                drawBarChart();
+            } else {
+                drawPieChart();
+            }
+        }
+
+        function downloadTopN() {
+            if (topNEntries.length === 0) {
+                alert('No data to download. Please display the data first.');
+                return;
+            }
+
+            const worksheet = XLSX.utils.aoa_to_sheet([
+                ['ErrorCode', 'ErrorDescription', 'Count'],
+                ...topNEntries.map(entry => [entry.errorCode, entry.errorDescription, entry.count])
+            ]);
+
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Top N Errors');
+
+            XLSX.writeFile(workbook, 'TopN.xlsx');
+        }
+
+        function downloadAllData() {
+            if (jsonData.length === 0) {
+                alert('No data to download. Please upload a file first.');
+                return;
+            }
+
+            const worksheet = XLSX.utils.json_to_sheet(jsonData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'All Data');
+
+            XLSX.writeFile(workbook, 'AllData.xlsx');
+        }
+    </script>
+</body>
+</html>
