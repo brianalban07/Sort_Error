@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,18 +21,24 @@ body {
     color: #1f2937;
 }
 
-/* ==========================================
+
+/* =====================================================
    HEADER
-========================================== */
+===================================================== */
 
 .header {
-    background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #3b82f6
+    );
+
     color: white;
     padding: 28px 20px;
 }
 
 .header-inner {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -45,37 +53,55 @@ body {
     opacity: 0.9;
 }
 
-/* ==========================================
+
+/* =====================================================
    MAIN
-========================================== */
+===================================================== */
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 25px auto;
     padding: 0 15px;
 }
 
-/* ==========================================
+
+/* =====================================================
    TOOLBAR
-========================================== */
+===================================================== */
 
 .toolbar {
     display: flex;
     gap: 10px;
     background: white;
     padding: 15px;
+
+    border:
+        1px solid
+        #e5e7eb;
+
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.04);
+
     margin-bottom: 15px;
 }
 
 .search {
     flex: 1;
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
+
+    padding:
+        12px 14px;
+
+    border:
+        1px solid
+        #d1d5db;
+
     border-radius: 8px;
+
     font-size: 14px;
+
     outline: none;
 }
 
@@ -86,10 +112,15 @@ body {
 button {
     border: none;
     border-radius: 8px;
-    padding: 11px 16px;
+
+    padding:
+        11px 16px;
+
     cursor: pointer;
+
     font-size: 14px;
     font-weight: bold;
+
     transition: 0.2s;
 }
 
@@ -116,25 +147,40 @@ button {
     background: #1d4ed8;
 }
 
-/* ==========================================
-   UPLOAD AREA
-========================================== */
+
+/* =====================================================
+   UPLOAD STATUS
+===================================================== */
 
 .upload-area {
     display: none;
+
     background: white;
-    border: 1px solid #e5e7eb;
+
+    border:
+        1px solid
+        #e5e7eb;
+
     border-radius: 12px;
+
     padding: 18px;
+
     margin-bottom: 15px;
 }
 
 .upload-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
     gap: 10px;
-    margin-bottom: 12px;
+
+    margin-bottom:
+        12px;
 }
 
 .upload-title {
@@ -143,31 +189,47 @@ button {
 }
 
 .upload-percent {
+    color: #16a34a;
+
     font-size: 13px;
     font-weight: bold;
-    color: #16a34a;
 }
 
 .progress-background {
     width: 100%;
     height: 10px;
-    background: #e5e7eb;
-    border-radius: 10px;
+
+    background:
+        #e5e7eb;
+
+    border-radius:
+        10px;
+
     overflow: hidden;
 }
 
 .progress-bar {
-    height: 100%;
     width: 0%;
-    background: #16a34a;
-    border-radius: 10px;
-    transition: width 0.25s ease;
+    height: 100%;
+
+    background:
+        #16a34a;
+
+    border-radius:
+        10px;
+
+    transition:
+        width 0.25s ease;
 }
 
 .upload-message {
     margin-top: 10px;
-    color: #6b7280;
-    font-size: 13px;
+
+    color:
+        #6b7280;
+
+    font-size:
+        13px;
 }
 
 .upload-success {
@@ -180,293 +242,604 @@ button {
     font-weight: bold;
 }
 
-/* ==========================================
+
+/* =====================================================
    DROP AREA
-========================================== */
+===================================================== */
 
 .drop-area {
     display: none;
-    border: 2px dashed #60a5fa;
-    background: #eff6ff;
-    color: #1e40af;
-    border-radius: 12px;
-    padding: 35px 20px;
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 15px;
-    font-weight: bold;
+
+    border:
+        2px dashed
+        #60a5fa;
+
+    background:
+        #eff6ff;
+
+    color:
+        #1e40af;
+
+    border-radius:
+        12px;
+
+    padding:
+        35px 20px;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        15px;
+
+    font-weight:
+        bold;
 }
 
 .drop-area.active {
     display: block;
 }
 
-/* ==========================================
+
+/* =====================================================
    BREADCRUMB
-========================================== */
+===================================================== */
 
 .breadcrumb {
     background: white;
-    border: 1px solid #e5e7eb;
-    padding: 14px 17px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    font-size: 14px;
+
+    border:
+        1px solid
+        #e5e7eb;
+
+    padding:
+        14px 17px;
+
+    border-radius:
+        10px;
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        14px;
 }
 
 .crumb {
-    color: #2563eb;
-    cursor: pointer;
-    font-weight: bold;
+    color:
+        #2563eb;
+
+    cursor:
+        pointer;
+
+    font-weight:
+        bold;
 }
 
 .crumb:hover {
-    text-decoration: underline;
+    text-decoration:
+        underline;
 }
 
 .separator {
-    color: #9ca3af;
-    margin: 0 6px;
+    color:
+        #9ca3af;
+
+    margin:
+        0 6px;
 }
 
-/* ==========================================
+
+/* =====================================================
    STORAGE
-========================================== */
+===================================================== */
 
 .storage {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background:
+        white;
+
+    border:
+        1px solid
+        #e5e7eb;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.04);
 }
 
-/* ==========================================
+
+/* =====================================================
    TABLE HEADER
-========================================== */
+===================================================== */
 
 .table-header {
     display: grid;
-    grid-template-columns: 1fr 130px 160px;
-    background: #f8fafc;
-    padding: 13px 18px;
-    color: #6b7280;
-    font-size: 12px;
-    font-weight: bold;
+
+    grid-template-columns:
+        minmax(300px,1fr)
+        120px
+        310px;
+
+    background:
+        #f8fafc;
+
+    padding:
+        13px 18px;
+
+    color:
+        #6b7280;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
 }
 
-/* ==========================================
+
+/* =====================================================
    FILE ROW
-========================================== */
+===================================================== */
 
 .file-row {
     display: grid;
-    grid-template-columns: 1fr 130px 160px;
-    min-height: 68px;
-    align-items: center;
-    padding: 12px 18px;
-    border-top: 1px solid #e5e7eb;
+
+    grid-template-columns:
+        minmax(300px,1fr)
+        120px
+        310px;
+
+    min-height:
+        68px;
+
+    align-items:
+        center;
+
+    padding:
+        12px 18px;
+
+    border-top:
+        1px solid
+        #e5e7eb;
+
+    transition:
+        background 0.15s;
 }
 
 .file-row:hover {
-    background: #f8fafc;
+    background:
+        #f8fafc;
 }
 
-/* ==========================================
-   FILE INFORMATION
-========================================== */
+
+/* =====================================================
+   FILE INFO
+===================================================== */
 
 .file-info {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    min-width:
+        0;
 }
 
 .file-icon {
-    font-size: 27px;
-    width: 35px;
-    text-align: center;
+    font-size:
+        27px;
+
+    width:
+        35px;
+
+    text-align:
+        center;
+
+    flex-shrink:
+        0;
 }
 
 .file-text {
-    min-width: 0;
+    min-width:
+        0;
 }
 
 .file-name {
-    font-weight: bold;
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-weight:
+        bold;
+
+    font-size:
+        14px;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
 }
 
 .file-description {
-    margin-top: 4px;
-    color: #6b7280;
-    font-size: 12px;
+    margin-top:
+        4px;
+
+    color:
+        #6b7280;
+
+    font-size:
+        12px;
 }
 
 .folder-name {
-    color: #2563eb;
-    cursor: pointer;
+    color:
+        #2563eb;
+
+    cursor:
+        pointer;
 }
 
 .folder-name:hover {
-    text-decoration: underline;
+    text-decoration:
+        underline;
 }
 
-/* ==========================================
+
+/* =====================================================
    SIZE
-========================================== */
+===================================================== */
 
 .size {
-    color: #6b7280;
-    font-size: 13px;
+    color:
+        #6b7280;
+
+    font-size:
+        13px;
 }
 
-/* ==========================================
-   ACTION
-========================================== */
+
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .action {
-    text-align: right;
+    display: flex;
+
+    justify-content:
+        flex-end;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    flex-wrap:
+        wrap;
 }
 
+
+/* DOWNLOAD */
+
 .download-button {
-    display: inline-block;
-    padding: 8px 12px;
-    border-radius: 7px;
-    background: #eff6ff;
-    color: #2563eb;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
+    display:
+        inline-block;
+
+    padding:
+        8px 10px;
+
+    border-radius:
+        7px;
+
+    border:
+        1px solid
+        #dbeafe;
+
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    transition:
+        0.2s;
 }
 
 .download-button:hover {
-    background: #2563eb;
-    color: white;
+    background:
+        #2563eb;
+
+    color:
+        white;
 }
 
+
+/* RENAME */
+
+.rename-button {
+    padding:
+        8px 10px;
+
+    border-radius:
+        7px;
+
+    border:
+        1px solid
+        #fed7aa;
+
+    background:
+        #fff7ed;
+
+    color:
+        #ea580c;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+}
+
+.rename-button:hover {
+    background:
+        #ea580c;
+
+    color:
+        white;
+}
+
+
+/* DELETE */
+
+.delete-button {
+    padding:
+        8px 10px;
+
+    border-radius:
+        7px;
+
+    border:
+        1px solid
+        #fecaca;
+
+    background:
+        #fef2f2;
+
+    color:
+        #dc2626;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+}
+
+.delete-button:hover {
+    background:
+        #dc2626;
+
+    color:
+        white;
+}
+
+
+/* OPEN FOLDER */
+
 .open-button {
-    padding: 8px 12px;
-    background: #f3f4f6;
-    color: #374151;
-    font-size: 12px;
+    padding:
+        8px 12px;
+
+    background:
+        #f3f4f6;
+
+    color:
+        #374151;
+
+    font-size:
+        12px;
 }
 
 .open-button:hover {
-    background: #e5e7eb;
+    background:
+        #e5e7eb;
 }
 
-/* ==========================================
+
+/* =====================================================
    STATUS
-========================================== */
+===================================================== */
 
 .status {
-    padding: 55px 20px;
-    text-align: center;
-    color: #6b7280;
+    padding:
+        55px 20px;
+
+    text-align:
+        center;
+
+    color:
+        #6b7280;
 }
 
 .loader {
-    width: 35px;
-    height: 35px;
-    border: 4px solid #e5e7eb;
-    border-top-color: #2563eb;
-    border-radius: 50%;
-    margin: auto auto 15px;
-    animation: spin 0.8s linear infinite;
+    width:
+        35px;
+
+    height:
+        35px;
+
+    border:
+        4px solid
+        #e5e7eb;
+
+    border-top-color:
+        #2563eb;
+
+    border-radius:
+        50%;
+
+    margin:
+        auto auto 15px;
+
+    animation:
+        spin 0.8s
+        linear infinite;
 }
 
 @keyframes spin {
+
     to {
-        transform: rotate(360deg);
+        transform:
+            rotate(360deg);
     }
+
 }
 
 .error {
-    color: #dc2626;
+    color:
+        #dc2626;
 }
 
-/* ==========================================
+
+/* =====================================================
    INFO
-========================================== */
+===================================================== */
 
 .info-bar {
-    margin-top: 12px;
+    margin-top:
+        12px;
+
     display: flex;
-    justify-content: space-between;
-    color: #6b7280;
-    font-size: 12px;
-    padding: 4px;
+
+    justify-content:
+        space-between;
+
+    color:
+        #6b7280;
+
+    font-size:
+        12px;
+
+    padding:
+        4px;
 }
 
-/* ==========================================
+
+/* =====================================================
    FOOTER
-========================================== */
+===================================================== */
 
 .footer {
-    text-align: center;
-    color: #9ca3af;
-    padding: 30px 15px;
-    font-size: 12px;
+    text-align:
+        center;
+
+    color:
+        #9ca3af;
+
+    padding:
+        30px 15px;
+
+    font-size:
+        12px;
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
 
-@media (max-width: 700px) {
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (
+    max-width: 700px
+) {
 
     .toolbar {
-        flex-direction: column;
+        flex-direction:
+            column;
     }
 
     .search {
-        width: 100%;
+        width:
+            100%;
     }
 
-    button {
-        width: 100%;
+    .toolbar button {
+        width:
+            100%;
     }
 
     .table-header {
-        display: none;
+        display:
+            none;
     }
 
     .file-row {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        padding: 14px;
+        display:
+            block;
+
+        padding:
+            14px;
     }
 
     .size {
-        display: none;
+        margin-top:
+            8px;
+
+        margin-left:
+            47px;
     }
 
     .action {
-        margin-left: 10px;
-    }
+        margin-top:
+            12px;
 
-    .download-text {
-        display: none;
+        margin-left:
+            47px;
+
+        justify-content:
+            flex-start;
     }
 
     .header h1 {
-        font-size: 23px;
+        font-size:
+            23px;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ==========================================
+
+<!-- =====================================================
      HEADER
-========================================== -->
+===================================================== -->
 
 <div class="header">
 
@@ -477,7 +850,7 @@ button {
         </h1>
 
         <p>
-            Upload, browse and download files
+            Upload, browse, download and manage files
         </p>
 
     </div>
@@ -485,9 +858,9 @@ button {
 </div>
 
 
-<!-- ==========================================
+<!-- =====================================================
      MAIN
-========================================== -->
+===================================================== -->
 
 <div class="container">
 
@@ -521,8 +894,6 @@ button {
         </button>
 
 
-        <!-- ACTUAL FILE PICKER -->
-
         <input
             id="fileInput"
             type="file"
@@ -533,9 +904,7 @@ button {
     </div>
 
 
-    <!-- ======================================
-         DRAG AND DROP
-    ======================================= -->
+    <!-- DRAG & DROP -->
 
     <div
         id="dropArea"
@@ -546,14 +915,12 @@ button {
 
         <br><br>
 
-        Files will be uploaded automatically.
+        Files will upload automatically.
 
     </div>
 
 
-    <!-- ======================================
-         UPLOAD PROGRESS
-    ======================================= -->
+    <!-- OPERATION STATUS -->
 
     <div
         id="uploadArea"
@@ -566,7 +933,7 @@ button {
                 id="uploadTitle"
                 class="upload-title"
             >
-                Uploading...
+                Working...
             </div>
 
 
@@ -594,19 +961,17 @@ button {
             id="uploadMessage"
             class="upload-message"
         >
-            Preparing upload...
+            Preparing...
         </div>
 
     </div>
 
 
-    <!-- ======================================
-         BREADCRUMB
-    ======================================= -->
+    <!-- BREADCRUMB -->
 
     <div
-        class="breadcrumb"
         id="breadcrumb"
+        class="breadcrumb"
     >
 
         🏠 Storage
@@ -614,9 +979,7 @@ button {
     </div>
 
 
-    <!-- ======================================
-         STORAGE LIST
-    ======================================= -->
+    <!-- STORAGE -->
 
     <div class="storage">
 
@@ -652,9 +1015,7 @@ button {
     </div>
 
 
-    <!-- ======================================
-         INFORMATION
-    ======================================= -->
+    <!-- INFO -->
 
     <div class="info-bar">
 
@@ -662,19 +1023,19 @@ button {
             Loading...
         </div>
 
+
         <div>
             GitHub File Storage
         </div>
 
     </div>
 
-
 </div>
 
 
-<!-- ==========================================
+<!-- =====================================================
      FOOTER
-========================================== -->
+===================================================== -->
 
 <div class="footer">
 
@@ -706,10 +1067,6 @@ const REPO =
 const BRANCH =
     "main";
 
-
-/*
-    Your Cloudflare Worker
-*/
 
 const WORKER_URL =
     "https://brian-file-storage.brianalban07.workers.dev";
@@ -814,10 +1171,12 @@ const dropArea =
 
 
 /* =====================================================
-   LOAD FILES FROM GITHUB
+   LOAD FILES
 ===================================================== */
 
-async function loadFiles(path = "") {
+async function loadFiles(
+    path = ""
+) {
 
     currentPath =
         path;
@@ -839,10 +1198,6 @@ async function loadFiles(path = "") {
             "/contents";
 
 
-        /*
-            Add folder if needed
-        */
-
         if (
             currentPath !== ""
         ) {
@@ -855,10 +1210,6 @@ async function loadFiles(path = "") {
 
         }
 
-
-        /*
-            Force MAIN branch and prevent cache
-        */
 
         apiURL +=
             "?ref=" +
@@ -873,13 +1224,17 @@ async function loadFiles(path = "") {
             await fetch(
                 apiURL,
                 {
+
                     cache:
                         "no-store",
 
                     headers: {
+
                         "Accept":
                             "application/vnd.github+json"
+
                     }
+
                 }
             );
 
@@ -933,9 +1288,7 @@ async function loadFiles(path = "") {
         }
 
 
-        /*
-            Hide index.html
-        */
+        /* Hide index.html */
 
         currentFiles =
             data.filter(
@@ -951,9 +1304,7 @@ async function loadFiles(path = "") {
             );
 
 
-        /*
-            Sort folders first
-        */
+        /* Folders first */
 
         currentFiles.sort(
             function(a, b) {
@@ -983,8 +1334,11 @@ async function loadFiles(path = "") {
                         b.name,
                         undefined,
                         {
-                            numeric: true,
-                            sensitivity: "base"
+                            numeric:
+                                true,
+
+                            sensitivity:
+                                "base"
                         }
                     )
                 );
@@ -1021,7 +1375,9 @@ async function loadFiles(path = "") {
    RENDER FILES
 ===================================================== */
 
-function renderFiles(files) {
+function renderFiles(
+    files
+) {
 
     fileList.innerHTML =
         "";
@@ -1062,9 +1418,9 @@ function renderFiles(files) {
                 "file-row";
 
 
-            /* =============================================
+            /* =================================================
                FOLDER
-            ============================================= */
+            ================================================= */
 
             if (
                 item.type === "dir"
@@ -1176,21 +1532,21 @@ function renderFiles(files) {
                     "action";
 
 
-                const button =
+                const openButton =
                     document.createElement(
                         "button"
                     );
 
 
-                button.className =
+                openButton.className =
                     "open-button";
 
 
-                button.textContent =
+                openButton.textContent =
                     "📂 Open";
 
 
-                button.onclick =
+                openButton.onclick =
                     function() {
 
                         openFolder(
@@ -1211,7 +1567,7 @@ function renderFiles(files) {
 
 
                 action.appendChild(
-                    button
+                    openButton
                 );
 
 
@@ -1232,9 +1588,9 @@ function renderFiles(files) {
             }
 
 
-            /* =============================================
+            /* =================================================
                FILE
-            ============================================= */
+            ================================================= */
 
             else {
 
@@ -1354,6 +1710,10 @@ function renderFiles(files) {
                     "action";
 
 
+                /* =============================================
+                   DOWNLOAD
+                ============================================= */
+
                 const download =
                     document.createElement(
                         "a"
@@ -1376,15 +1736,78 @@ function renderFiles(files) {
                     "noopener noreferrer";
 
 
-                download.innerHTML =
-                    "⬇ " +
-                    '<span class="download-text">' +
-                    "Download" +
-                    "</span>";
+                download.textContent =
+                    "⬇ Download";
 
 
                 action.appendChild(
                     download
+                );
+
+
+                /* =============================================
+                   RENAME
+                ============================================= */
+
+                const renameButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                renameButton.className =
+                    "rename-button";
+
+
+                renameButton.textContent =
+                    "✏️ Rename";
+
+
+                renameButton.onclick =
+                    function() {
+
+                        renameFile(
+                            item
+                        );
+
+                    };
+
+
+                action.appendChild(
+                    renameButton
+                );
+
+
+                /* =============================================
+                   DELETE
+                ============================================= */
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                deleteButton.className =
+                    "delete-button";
+
+
+                deleteButton.textContent =
+                    "🗑 Delete";
+
+
+                deleteButton.onclick =
+                    function() {
+
+                        deleteFile(
+                            item
+                        );
+
+                    };
+
+
+                action.appendChild(
+                    deleteButton
                 );
 
 
@@ -1444,7 +1867,7 @@ uploadButton.addEventListener(
 
 
 /* =====================================================
-   FILE PICKER CHANGE
+   FILE SELECTED
 ===================================================== */
 
 fileInput.addEventListener(
@@ -1471,11 +1894,6 @@ fileInput.addEventListener(
         );
 
 
-        /*
-            Reset picker so the same file
-            can be selected again later.
-        */
-
         fileInput.value =
             "";
 
@@ -1484,10 +1902,12 @@ fileInput.addEventListener(
 
 
 /* =====================================================
-   UPLOAD MULTIPLE FILES
+   UPLOAD FILES
 ===================================================== */
 
-async function uploadFiles(files) {
+async function uploadFiles(
+    files
+) {
 
     if (
         uploading ||
@@ -1507,8 +1927,10 @@ async function uploadFiles(files) {
         true;
 
 
-    uploadArea.style.display =
-        "block";
+    showOperation(
+        "Preparing Upload",
+        "Preparing files..."
+    );
 
 
     uploadProgress.style.width =
@@ -1517,10 +1939,6 @@ async function uploadFiles(files) {
 
     uploadPercent.textContent =
         "0%";
-
-
-    uploadMessage.className =
-        "upload-message";
 
 
     let successCount =
@@ -1556,11 +1974,7 @@ async function uploadFiles(files) {
             file.name;
 
 
-        /*
-            GitHub Contents API upload
-            should not be used for files
-            above 100 MB.
-        */
+        /* Maximum 100 MB */
 
         if (
             file.size >
@@ -1586,21 +2000,11 @@ async function uploadFiles(files) {
 
         try {
 
-            /*
-                Convert selected file
-                to Base64
-            */
-
             const base64 =
                 await fileToBase64(
                     file
                 );
 
-
-            /*
-                Send file to
-                Cloudflare Worker
-            */
 
             const response =
                 await fetch(
@@ -1625,6 +2029,9 @@ async function uploadFiles(files) {
                                     filename:
                                         file.name,
 
+                                    path:
+                                        currentPath,
+
                                     content:
                                         base64
 
@@ -1635,24 +2042,10 @@ async function uploadFiles(files) {
                 );
 
 
-            let result;
-
-
-            try {
-
-                result =
-                    await response.json();
-
-            }
-
-            catch {
-
-                result = {
-                    error:
-                        "Worker returned an invalid response."
-                };
-
-            }
+            const result =
+                await safeResponseJSON(
+                    response
+                );
 
 
             if (
@@ -1668,7 +2061,6 @@ async function uploadFiles(files) {
 
 
             successCount++;
-
 
         }
 
@@ -1697,11 +2089,7 @@ async function uploadFiles(files) {
         }
 
 
-        /*
-            Overall progress
-        */
-
-        const percentage =
+        const percent =
             Math.round(
                 (
                     (i + 1) /
@@ -1712,20 +2100,16 @@ async function uploadFiles(files) {
 
 
         uploadProgress.style.width =
-            percentage +
+            percent +
             "%";
 
 
         uploadPercent.textContent =
-            percentage +
+            percent +
             "%";
 
     }
 
-
-    /* =================================================
-       UPLOAD FINISHED
-    ================================================= */
 
     if (
         failedCount === 0
@@ -1778,18 +2162,13 @@ async function uploadFiles(files) {
         "100%";
 
 
-    /*
-        Wait briefly for GitHub
-        then automatically refresh.
-    */
+    searchInput.value =
+        "";
+
 
     await wait(
         1000
     );
-
-
-    searchInput.value =
-        "";
 
 
     await loadFiles(
@@ -1805,29 +2184,286 @@ async function uploadFiles(files) {
         false;
 
 
-    /*
-        Hide successful progress box
-        after a few seconds.
-    */
-
     if (
         failedCount === 0
     ) {
 
-        setTimeout(
-            function() {
+        hideOperationLater();
 
-                if (
-                    !uploading
-                ) {
+    }
 
-                    uploadArea.style.display =
-                        "none";
+}
+
+
+/* =====================================================
+   RENAME FILE
+===================================================== */
+
+async function renameFile(
+    item
+) {
+
+    if (
+        uploading
+    ) {
+
+        return;
+
+    }
+
+
+    const oldName =
+        item.name;
+
+
+    const newName =
+        prompt(
+            "Enter the new filename:",
+            oldName
+        );
+
+
+    if (
+        newName === null
+    ) {
+
+        return;
+
+    }
+
+
+    const cleanedName =
+        newName.trim();
+
+
+    if (
+        cleanedName === ""
+    ) {
+
+        alert(
+            "Filename cannot be empty."
+        );
+
+
+        return;
+
+    }
+
+
+    if (
+        cleanedName === oldName
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        cleanedName.includes("/") ||
+        cleanedName.includes("\\")
+    ) {
+
+        alert(
+            "Filename cannot contain / or \\."
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+        Recommend preserving the extension.
+    */
+
+    const oldExtension =
+        getExtension(
+            oldName
+        );
+
+
+    const newExtension =
+        getExtension(
+            cleanedName
+        );
+
+
+    if (
+        oldExtension !== "" &&
+        oldExtension !== newExtension
+    ) {
+
+        const continueRename =
+            confirm(
+                "Warning:\n\n" +
+                "The file extension will change from ." +
+                oldExtension +
+                " to ." +
+                newExtension +
+                ".\n\n" +
+                "The file may no longer open correctly.\n\n" +
+                "Continue?"
+            );
+
+
+        if (
+            !continueRename
+        ) {
+
+            return;
+
+        }
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Rename this file?\n\n" +
+            oldName +
+            "\n\n→\n\n" +
+            cleanedName
+        );
+
+
+    if (
+        !confirmed
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        showOperation(
+            "Renaming File",
+            oldName +
+            " → " +
+            cleanedName
+        );
+
+
+        uploadPercent.textContent =
+            "";
+
+
+        uploadProgress.style.width =
+            "100%";
+
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/rename",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            {
+
+                                path:
+                                    item.path,
+
+                                newName:
+                                    cleanedName
+
+                            }
+                        )
 
                 }
+            );
 
-            },
-            3500
+
+        const result =
+            await safeResponseJSON(
+                response
+            );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Rename failed."
+            );
+
+        }
+
+
+        uploadTitle.textContent =
+            "Rename Complete";
+
+
+        uploadMessage.className =
+            "upload-message upload-success";
+
+
+        uploadMessage.textContent =
+            "✅ " +
+            oldName +
+            " renamed to " +
+            cleanedName;
+
+
+        searchInput.value =
+            "";
+
+
+        await wait(
+            700
+        );
+
+
+        await loadFiles(
+            currentPath
+        );
+
+
+        hideOperationLater();
+
+    }
+
+    catch (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
+
+        uploadTitle.textContent =
+            "Rename Failed";
+
+
+        uploadMessage.className =
+            "upload-message upload-error";
+
+
+        uploadMessage.textContent =
+            "❌ " +
+            error.message;
+
+
+        alert(
+            "Unable to rename file:\n\n" +
+            error.message
         );
 
     }
@@ -1836,10 +2472,175 @@ async function uploadFiles(files) {
 
 
 /* =====================================================
-   FILE TO BASE64
+   DELETE FILE
 ===================================================== */
 
-function fileToBase64(file) {
+async function deleteFile(
+    item
+) {
+
+    if (
+        uploading
+    ) {
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this file?\n\n" +
+            item.name +
+            "\n\n" +
+            "Click OK to delete."
+        );
+
+
+    if (
+        !confirmed
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        showOperation(
+            "Deleting File",
+            item.name
+        );
+
+
+        uploadPercent.textContent =
+            "";
+
+
+        uploadProgress.style.width =
+            "100%";
+
+
+        const response =
+            await fetch(
+                WORKER_URL +
+                "/delete",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            {
+
+                                path:
+                                    item.path
+
+                            }
+                        )
+
+                }
+            );
+
+
+        const result =
+            await safeResponseJSON(
+                response
+            );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Delete failed."
+            );
+
+        }
+
+
+        uploadTitle.textContent =
+            "Delete Complete";
+
+
+        uploadMessage.className =
+            "upload-message upload-success";
+
+
+        uploadMessage.textContent =
+            "✅ " +
+            item.name +
+            " deleted successfully.";
+
+
+        searchInput.value =
+            "";
+
+
+        await wait(
+            700
+        );
+
+
+        await loadFiles(
+            currentPath
+        );
+
+
+        hideOperationLater();
+
+    }
+
+    catch (
+        error
+    ) {
+
+        console.error(
+            error
+        );
+
+
+        uploadTitle.textContent =
+            "Delete Failed";
+
+
+        uploadMessage.className =
+            "upload-message upload-error";
+
+
+        uploadMessage.textContent =
+            "❌ " +
+            error.message;
+
+
+        alert(
+            "Unable to delete file:\n\n" +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FILE → BASE64
+===================================================== */
+
+function fileToBase64(
+    file
+) {
 
     return new Promise(
         function(
@@ -1854,57 +2655,39 @@ function fileToBase64(file) {
             reader.onload =
                 function() {
 
-                    try {
-
-                        const result =
-                            String(
-                                reader.result
-                            );
-
-
-                        const commaIndex =
-                            result.indexOf(
-                                ","
-                            );
-
-
-                        if (
-                            commaIndex === -1
-                        ) {
-
-                            reject(
-                                new Error(
-                                    "Unable to convert file."
-                                )
-                            );
-
-
-                            return;
-
-                        }
-
-
-                        const base64 =
-                            result.substring(
-                                commaIndex + 1
-                            );
-
-
-                        resolve(
-                            base64
+                    const result =
+                        String(
+                            reader.result
                         );
 
-                    }
 
-                    catch (
-                        error
+                    const commaIndex =
+                        result.indexOf(
+                            ","
+                        );
+
+
+                    if (
+                        commaIndex === -1
                     ) {
 
                         reject(
-                            error
+                            new Error(
+                                "Unable to convert file."
+                            )
                         );
 
+
+                        return;
+
                     }
+
+
+                    resolve(
+                        result.substring(
+                            commaIndex + 1
+                        )
+                    );
 
                 };
 
@@ -1914,7 +2697,7 @@ function fileToBase64(file) {
 
                     reject(
                         new Error(
-                            "Unable to read the selected file."
+                            "Unable to read file."
                         )
                     );
 
@@ -2033,17 +2816,14 @@ document.addEventListener(
 
 
         if (
-            files.length === 0
+            files.length
         ) {
 
-            return;
+            await uploadFiles(
+                files
+            );
 
         }
-
-
-        await uploadFiles(
-            files
-        );
 
     }
 );
@@ -2053,7 +2833,9 @@ document.addEventListener(
    OPEN FOLDER
 ===================================================== */
 
-function openFolder(path) {
+function openFolder(
+    path
+) {
 
     searchInput.value =
         "";
@@ -2295,7 +3077,9 @@ function updateBreadcrumb() {
    FILE EXTENSION
 ===================================================== */
 
-function getExtension(filename) {
+function getExtension(
+    filename
+) {
 
     const index =
         filename.lastIndexOf(
@@ -2304,7 +3088,8 @@ function getExtension(filename) {
 
 
     if (
-        index === -1
+        index === -1 ||
+        index === filename.length - 1
     ) {
 
         return "";
@@ -2325,7 +3110,9 @@ function getExtension(filename) {
    FILE TYPE
 ===================================================== */
 
-function getFileType(filename) {
+function getFileType(
+    filename
+) {
 
     const extension =
         getExtension(
@@ -2351,10 +3138,12 @@ function getFileType(filename) {
 
 
 /* =====================================================
-   FILE ICON
+   ICON
 ===================================================== */
 
-function getFileIcon(filename) {
+function getFileIcon(
+    filename
+) {
 
     const extension =
         getExtension(
@@ -2364,138 +3153,63 @@ function getFileIcon(filename) {
 
     const icons = {
 
-        ppt:
-            "📊",
+        ppt: "📊",
+        pptx: "📊",
 
-        pptx:
-            "📊",
+        xls: "📗",
+        xlsx: "📗",
+        csv: "📗",
 
-        xls:
-            "📗",
+        doc: "📘",
+        docx: "📘",
 
-        xlsx:
-            "📗",
+        pdf: "📕",
 
-        csv:
-            "📗",
+        txt: "📄",
+        log: "📄",
+        md: "📝",
 
-        doc:
-            "📘",
+        jpg: "🖼️",
+        jpeg: "🖼️",
+        png: "🖼️",
+        gif: "🖼️",
+        webp: "🖼️",
+        svg: "🖼️",
 
-        docx:
-            "📘",
+        zip: "📦",
+        rar: "📦",
+        "7z": "📦",
+        tar: "📦",
+        gz: "📦",
 
-        pdf:
-            "📕",
+        mp4: "🎬",
+        avi: "🎬",
+        mov: "🎬",
+        mkv: "🎬",
 
-        txt:
-            "📄",
+        mp3: "🎵",
+        wav: "🎵",
+        flac: "🎵",
 
-        log:
-            "📄",
+        html: "🌐",
+        htm: "🌐",
+        css: "🎨",
+        js: "⚙️",
+        json: "⚙️",
+        xml: "⚙️",
 
-        md:
-            "📝",
-
-        jpg:
-            "🖼️",
-
-        jpeg:
-            "🖼️",
-
-        png:
-            "🖼️",
-
-        gif:
-            "🖼️",
-
-        webp:
-            "🖼️",
-
-        svg:
-            "🖼️",
-
-        zip:
-            "📦",
-
-        rar:
-            "📦",
-
-        "7z":
-            "📦",
-
-        tar:
-            "📦",
-
-        gz:
-            "📦",
-
-        mp4:
-            "🎬",
-
-        avi:
-            "🎬",
-
-        mov:
-            "🎬",
-
-        mkv:
-            "🎬",
-
-        mp3:
-            "🎵",
-
-        wav:
-            "🎵",
-
-        flac:
-            "🎵",
-
-        html:
-            "🌐",
-
-        htm:
-            "🌐",
-
-        css:
-            "🎨",
-
-        js:
-            "⚙️",
-
-        json:
-            "⚙️",
-
-        xml:
-            "⚙️",
-
-        py:
-            "🐍",
-
-        sh:
-            "💻",
-
-        bat:
-            "💻",
-
-        ps1:
-            "💻"
+        py: "🐍",
+        sh: "💻",
+        bat: "💻",
+        ps1: "💻"
 
     };
 
 
-    if (
-        icons[extension]
-    ) {
-
-        return icons[
-            extension
-        ];
-
-    }
-
-
-    return "📄";
+    return (
+        icons[extension] ||
+        "📄"
+    );
 
 }
 
@@ -2504,7 +3218,9 @@ function getFileIcon(filename) {
    FILE SIZE
 ===================================================== */
 
-function formatBytes(bytes) {
+function formatBytes(
+    bytes
+) {
 
     if (
         bytes === 0
@@ -2540,14 +3256,11 @@ function formatBytes(bytes) {
         );
 
 
-    if (
-        index >= units.length
-    ) {
-
-        index =
-            units.length - 1;
-
-    }
+    index =
+        Math.min(
+            index,
+            units.length - 1
+        );
 
 
     const result =
@@ -2574,10 +3287,12 @@ function formatBytes(bytes) {
 
 
 /* =====================================================
-   PATH ENCODING
+   ENCODE PATH
 ===================================================== */
 
-function encodeGitHubPath(path) {
+function encodeGitHubPath(
+    path
+) {
 
     return path
 
@@ -2602,7 +3317,9 @@ function encodeGitHubPath(path) {
    FILE COUNT
 ===================================================== */
 
-function updateFileCount(files) {
+function updateFileCount(
+    files
+) {
 
     const searching =
         searchInput.value
@@ -2677,7 +3394,7 @@ function updateFileCount(files) {
 
 
 /* =====================================================
-   LOADING
+   SHOW LOADING
 ===================================================== */
 
 function showLoading() {
@@ -2696,10 +3413,12 @@ function showLoading() {
 
 
 /* =====================================================
-   ERROR
+   SHOW ERROR
 ===================================================== */
 
-function showError(message) {
+function showError(
+    message
+) {
 
     fileList.innerHTML =
         '<div class="status error">' +
@@ -2707,7 +3426,9 @@ function showError(message) {
         '<br><br>' +
         '<strong>Unable to load files</strong>' +
         '<br><br>' +
-        escapeHTML(message) +
+        escapeHTML(
+            message
+        ) +
         '</div>';
 
 
@@ -2718,10 +3439,98 @@ function showError(message) {
 
 
 /* =====================================================
-   HTML ESCAPE
+   OPERATION DISPLAY
 ===================================================== */
 
-function escapeHTML(text) {
+function showOperation(
+    title,
+    message
+) {
+
+    uploadArea.style.display =
+        "block";
+
+
+    uploadTitle.textContent =
+        title;
+
+
+    uploadMessage.className =
+        "upload-message";
+
+
+    uploadMessage.textContent =
+        message;
+
+
+    uploadProgress.style.width =
+        "0%";
+
+
+    uploadPercent.textContent =
+        "0%";
+
+}
+
+
+/* =====================================================
+   HIDE OPERATION AFTER SUCCESS
+===================================================== */
+
+function hideOperationLater() {
+
+    setTimeout(
+        function() {
+
+            if (
+                !uploading
+            ) {
+
+                uploadArea.style.display =
+                    "none";
+
+            }
+
+        },
+        3000
+    );
+
+}
+
+
+/* =====================================================
+   SAFE RESPONSE JSON
+===================================================== */
+
+async function safeResponseJSON(
+    response
+) {
+
+    try {
+
+        return await response.json();
+
+    }
+
+    catch {
+
+        return {
+            error:
+                "Server returned an invalid response."
+        };
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(
+    text
+) {
 
     const div =
         document.createElement(
@@ -2742,7 +3551,9 @@ function escapeHTML(text) {
    WAIT
 ===================================================== */
 
-function wait(milliseconds) {
+function wait(
+    milliseconds
+) {
 
     return new Promise(
         function(resolve) {
@@ -2759,7 +3570,7 @@ function wait(milliseconds) {
 
 
 /* =====================================================
-   INITIAL START
+   INITIAL LOAD
 ===================================================== */
 
 loadFiles("");
@@ -2767,4 +3578,5 @@ loadFiles("");
 </script>
 
 </body>
+
 </html>
