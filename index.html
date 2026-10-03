@@ -7,6 +7,7 @@
 <title>Brian File Storage</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -18,9 +19,9 @@ body {
     color: #1f2937;
 }
 
-/* ==============================
+/* ==========================================
    HEADER
-============================== */
+========================================== */
 
 .header {
     background: linear-gradient(135deg, #1d4ed8, #3b82f6);
@@ -44,9 +45,9 @@ body {
     opacity: 0.9;
 }
 
-/* ==============================
+/* ==========================================
    MAIN
-============================== */
+========================================== */
 
 .container {
     max-width: 1100px;
@@ -54,9 +55,9 @@ body {
     padding: 0 15px;
 }
 
-/* ==============================
+/* ==========================================
    TOOLBAR
-============================== */
+========================================== */
 
 .toolbar {
     display: flex;
@@ -89,6 +90,7 @@ button {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 .upload-button {
@@ -100,6 +102,11 @@ button {
     background: #15803d;
 }
 
+.upload-button:disabled {
+    background: #86b997;
+    cursor: not-allowed;
+}
+
 .refresh-button {
     background: #2563eb;
     color: white;
@@ -109,23 +116,94 @@ button {
     background: #1d4ed8;
 }
 
-/* ==============================
-   NOTICE
-============================== */
+/* ==========================================
+   UPLOAD AREA
+========================================== */
 
-.notice {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    color: #1e40af;
-    padding: 12px 15px;
-    border-radius: 9px;
+.upload-area {
+    display: none;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px;
     margin-bottom: 15px;
+}
+
+.upload-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.upload-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.upload-percent {
+    font-size: 13px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+.progress-background {
+    width: 100%;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #16a34a;
+    border-radius: 10px;
+    transition: width 0.25s ease;
+}
+
+.upload-message {
+    margin-top: 10px;
+    color: #6b7280;
     font-size: 13px;
 }
 
-/* ==============================
+.upload-success {
+    color: #15803d;
+    font-weight: bold;
+}
+
+.upload-error {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* ==========================================
+   DROP AREA
+========================================== */
+
+.drop-area {
+    display: none;
+    border: 2px dashed #60a5fa;
+    background: #eff6ff;
+    color: #1e40af;
+    border-radius: 12px;
+    padding: 35px 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.drop-area.active {
+    display: block;
+}
+
+/* ==========================================
    BREADCRUMB
-============================== */
+========================================== */
 
 .breadcrumb {
     background: white;
@@ -151,9 +229,9 @@ button {
     margin: 0 6px;
 }
 
-/* ==============================
+/* ==========================================
    STORAGE
-============================== */
+========================================== */
 
 .storage {
     background: white;
@@ -163,9 +241,9 @@ button {
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-/* ==============================
+/* ==========================================
    TABLE HEADER
-============================== */
+========================================== */
 
 .table-header {
     display: grid;
@@ -177,9 +255,9 @@ button {
     font-weight: bold;
 }
 
-/* ==============================
+/* ==========================================
    FILE ROW
-============================== */
+========================================== */
 
 .file-row {
     display: grid;
@@ -194,9 +272,9 @@ button {
     background: #f8fafc;
 }
 
-/* ==============================
+/* ==========================================
    FILE INFORMATION
-============================== */
+========================================== */
 
 .file-info {
     display: flex;
@@ -238,18 +316,18 @@ button {
     text-decoration: underline;
 }
 
-/* ==============================
+/* ==========================================
    SIZE
-============================== */
+========================================== */
 
 .size {
     color: #6b7280;
     font-size: 13px;
 }
 
-/* ==============================
+/* ==========================================
    ACTION
-============================== */
+========================================== */
 
 .action {
     text-align: right;
@@ -282,9 +360,9 @@ button {
     background: #e5e7eb;
 }
 
-/* ==============================
+/* ==========================================
    STATUS
-============================== */
+========================================== */
 
 .status {
     padding: 55px 20px;
@@ -312,9 +390,9 @@ button {
     color: #dc2626;
 }
 
-/* ==============================
+/* ==========================================
    INFO
-============================== */
+========================================== */
 
 .info-bar {
     margin-top: 12px;
@@ -325,9 +403,9 @@ button {
     padding: 4px;
 }
 
-/* ==============================
+/* ==========================================
    FOOTER
-============================== */
+========================================== */
 
 .footer {
     text-align: center;
@@ -336,9 +414,9 @@ button {
     font-size: 12px;
 }
 
-/* ==============================
+/* ==========================================
    MOBILE
-============================== */
+========================================== */
 
 @media (max-width: 700px) {
 
@@ -380,33 +458,39 @@ button {
         font-size: 23px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ==============================
+<!-- ==========================================
      HEADER
-============================== -->
+========================================== -->
 
 <div class="header">
+
     <div class="header-inner">
 
-        <h1>📁 Brian File Storage</h1>
+        <h1>
+            📁 Brian File Storage
+        </h1>
 
         <p>
-            Simple file storage powered by GitHub
+            Upload, browse and download files
         </p>
 
     </div>
+
 </div>
 
 
-<!-- ==============================
+<!-- ==========================================
      MAIN
-============================== -->
+========================================== -->
 
 <div class="container">
+
 
     <!-- TOOLBAR -->
 
@@ -417,7 +501,9 @@ button {
             class="search"
             type="text"
             placeholder="🔍 Search files and folders..."
+            autocomplete="off"
         >
+
 
         <button
             class="upload-button"
@@ -426,6 +512,7 @@ button {
             📤 Upload File
         </button>
 
+
         <button
             class="refresh-button"
             id="refreshButton"
@@ -433,37 +520,115 @@ button {
             🔄 Refresh
         </button>
 
+
+        <!-- ACTUAL FILE PICKER -->
+
+        <input
+            id="fileInput"
+            type="file"
+            hidden
+            multiple
+        >
+
     </div>
 
 
-    <!-- NOTICE -->
+    <!-- ======================================
+         DRAG AND DROP
+    ======================================= -->
 
-    <div class="notice">
-        ℹ️ Upload File opens GitHub's upload page.
-        After uploading and committing the file,
-        return here and click Refresh.
+    <div
+        id="dropArea"
+        class="drop-area"
+    >
+
+        📤 Drop files here to upload
+
+        <br><br>
+
+        Files will be uploaded automatically.
+
     </div>
 
 
-    <!-- BREADCRUMB -->
+    <!-- ======================================
+         UPLOAD PROGRESS
+    ======================================= -->
+
+    <div
+        id="uploadArea"
+        class="upload-area"
+    >
+
+        <div class="upload-header">
+
+            <div
+                id="uploadTitle"
+                class="upload-title"
+            >
+                Uploading...
+            </div>
+
+
+            <div
+                id="uploadPercent"
+                class="upload-percent"
+            >
+                0%
+            </div>
+
+        </div>
+
+
+        <div class="progress-background">
+
+            <div
+                id="uploadProgress"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="uploadMessage"
+            class="upload-message"
+        >
+            Preparing upload...
+        </div>
+
+    </div>
+
+
+    <!-- ======================================
+         BREADCRUMB
+    ======================================= -->
 
     <div
         class="breadcrumb"
         id="breadcrumb"
     >
+
         🏠 Storage
+
     </div>
 
 
-    <!-- STORAGE -->
+    <!-- ======================================
+         STORAGE LIST
+    ======================================= -->
 
     <div class="storage">
 
         <div class="table-header">
 
-            <div>NAME</div>
+            <div>
+                NAME
+            </div>
 
-            <div>SIZE</div>
+            <div>
+                SIZE
+            </div>
 
             <div style="text-align:right;">
                 ACTION
@@ -487,7 +652,9 @@ button {
     </div>
 
 
-    <!-- INFO -->
+    <!-- ======================================
+         INFORMATION
+    ======================================= -->
 
     <div class="info-bar">
 
@@ -496,21 +663,24 @@ button {
         </div>
 
         <div>
-            Public Repository
+            GitHub File Storage
         </div>
 
     </div>
 
+
 </div>
 
 
-<!-- ==============================
+<!-- ==========================================
      FOOTER
-============================== -->
+========================================== -->
 
 <div class="footer">
 
-    Brian File Storage
+    <strong>
+        Brian File Storage
+    </strong>
 
     <br><br>
 
@@ -522,23 +692,43 @@ button {
 <script>
 
 /* =====================================================
-   GITHUB CONFIGURATION
+   CONFIGURATION
 ===================================================== */
 
-const OWNER = "brianalban07";
+const OWNER =
+    "brianalban07";
 
-const REPO = "Sort_Error";
 
-const BRANCH = "main";
+const REPO =
+    "Sort_Error";
+
+
+const BRANCH =
+    "main";
+
+
+/*
+    Your Cloudflare Worker
+*/
+
+const WORKER_URL =
+    "https://brian-file-storage.brianalban07.workers.dev";
 
 
 /* =====================================================
    VARIABLES
 ===================================================== */
 
-let currentPath = "";
+let currentPath =
+    "";
 
-let currentFiles = [];
+
+let currentFiles =
+    [];
+
+
+let uploading =
+    false;
 
 
 /* =====================================================
@@ -546,33 +736,95 @@ let currentFiles = [];
 ===================================================== */
 
 const fileList =
-    document.getElementById("fileList");
+    document.getElementById(
+        "fileList"
+    );
+
 
 const fileCount =
-    document.getElementById("fileCount");
+    document.getElementById(
+        "fileCount"
+    );
+
 
 const searchInput =
-    document.getElementById("searchInput");
+    document.getElementById(
+        "searchInput"
+    );
+
 
 const breadcrumb =
-    document.getElementById("breadcrumb");
+    document.getElementById(
+        "breadcrumb"
+    );
+
 
 const uploadButton =
-    document.getElementById("uploadButton");
+    document.getElementById(
+        "uploadButton"
+    );
+
 
 const refreshButton =
-    document.getElementById("refreshButton");
+    document.getElementById(
+        "refreshButton"
+    );
+
+
+const fileInput =
+    document.getElementById(
+        "fileInput"
+    );
+
+
+const uploadArea =
+    document.getElementById(
+        "uploadArea"
+    );
+
+
+const uploadTitle =
+    document.getElementById(
+        "uploadTitle"
+    );
+
+
+const uploadPercent =
+    document.getElementById(
+        "uploadPercent"
+    );
+
+
+const uploadProgress =
+    document.getElementById(
+        "uploadProgress"
+    );
+
+
+const uploadMessage =
+    document.getElementById(
+        "uploadMessage"
+    );
+
+
+const dropArea =
+    document.getElementById(
+        "dropArea"
+    );
 
 
 /* =====================================================
-   LOAD FILES
+   LOAD FILES FROM GITHUB
 ===================================================== */
 
 async function loadFiles(path = "") {
 
-    currentPath = path;
+    currentPath =
+        path;
+
 
     showLoading();
+
 
     updateBreadcrumb();
 
@@ -588,46 +840,41 @@ async function loadFiles(path = "") {
 
 
         /*
-        If inside a folder,
-        add folder path.
+            Add folder if needed
         */
 
-        if (currentPath !== "") {
+        if (
+            currentPath !== ""
+        ) {
 
             apiURL +=
                 "/" +
-                encodeGitHubPath(currentPath);
+                encodeGitHubPath(
+                    currentPath
+                );
 
         }
 
 
         /*
-        IMPORTANT FIX
-
-        Force MAIN branch
-        and bypass cached API results.
+            Force MAIN branch and prevent cache
         */
 
         apiURL +=
             "?ref=" +
-            encodeURIComponent(BRANCH) +
+            encodeURIComponent(
+                BRANCH
+            ) +
             "&_=" +
             Date.now();
-
-
-        console.log(
-            "Loading GitHub API:",
-            apiURL
-        );
 
 
         const response =
             await fetch(
                 apiURL,
                 {
-                    method: "GET",
-
-                    cache: "no-store",
+                    cache:
+                        "no-store",
 
                     headers: {
                         "Accept":
@@ -637,15 +884,13 @@ async function loadFiles(path = "") {
             );
 
 
-        console.log(
-            "GitHub response:",
-            response.status
-        );
+        if (
+            !response.ok
+        ) {
 
-
-        if (!response.ok) {
-
-            if (response.status === 404) {
+            if (
+                response.status === 404
+            ) {
 
                 throw new Error(
                     "Repository or folder not found."
@@ -654,18 +899,19 @@ async function loadFiles(path = "") {
             }
 
 
-            if (response.status === 403) {
+            if (
+                response.status === 403
+            ) {
 
                 throw new Error(
-                    "GitHub API request limit reached. " +
-                    "Please wait and try again."
+                    "GitHub API request limit reached."
                 );
 
             }
 
 
             throw new Error(
-                "GitHub API returned HTTP " +
+                "GitHub returned HTTP " +
                 response.status
             );
 
@@ -676,13 +922,9 @@ async function loadFiles(path = "") {
             await response.json();
 
 
-        console.log(
-            "GitHub files:",
-            data
-        );
-
-
-        if (!Array.isArray(data)) {
+        if (
+            !Array.isArray(data)
+        ) {
 
             throw new Error(
                 "GitHub did not return a folder list."
@@ -692,10 +934,7 @@ async function loadFiles(path = "") {
 
 
         /*
-        Hide index.html.
-
-        We don't want the website itself
-        appearing as a downloadable file.
+            Hide index.html
         */
 
         currentFiles =
@@ -713,9 +952,7 @@ async function loadFiles(path = "") {
 
 
         /*
-        Sort:
-        folders first
-        files second
+            Sort folders first
         */
 
         currentFiles.sort(
@@ -741,13 +978,15 @@ async function loadFiles(path = "") {
                 }
 
 
-                return a.name.localeCompare(
-                    b.name,
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
+                return (
+                    a.name.localeCompare(
+                        b.name,
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    )
                 );
 
             }
@@ -760,10 +999,11 @@ async function loadFiles(path = "") {
 
     }
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
         console.error(
-            "LOAD ERROR:",
             error
         );
 
@@ -778,15 +1018,18 @@ async function loadFiles(path = "") {
 
 
 /* =====================================================
-   DISPLAY FILES
+   RENDER FILES
 ===================================================== */
 
 function renderFiles(files) {
 
-    fileList.innerHTML = "";
+    fileList.innerHTML =
+        "";
 
 
-    if (files.length === 0) {
+    if (
+        files.length === 0
+    ) {
 
         fileList.innerHTML =
             '<div class="status">' +
@@ -823,7 +1066,9 @@ function renderFiles(files) {
                FOLDER
             ============================================= */
 
-            if (item.type === "dir") {
+            if (
+                item.type === "dir"
+            ) {
 
                 const info =
                     document.createElement(
@@ -907,8 +1152,6 @@ function renderFiles(files) {
                 );
 
 
-                /* SIZE */
-
                 const size =
                     document.createElement(
                         "div"
@@ -922,8 +1165,6 @@ function renderFiles(files) {
                 size.textContent =
                     "Folder";
 
-
-                /* ACTION */
 
                 const action =
                     document.createElement(
@@ -1087,8 +1328,6 @@ function renderFiles(files) {
                 );
 
 
-                /* SIZE */
-
                 const size =
                     document.createElement(
                         "div"
@@ -1104,8 +1343,6 @@ function renderFiles(files) {
                         item.size
                     );
 
-
-                /* ACTION */
 
                 const action =
                     document.createElement(
@@ -1184,6 +1421,635 @@ function renderFiles(files) {
 
 
 /* =====================================================
+   UPLOAD BUTTON
+===================================================== */
+
+uploadButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            uploading
+        ) {
+
+            return;
+
+        }
+
+
+        fileInput.click();
+
+    }
+);
+
+
+/* =====================================================
+   FILE PICKER CHANGE
+===================================================== */
+
+fileInput.addEventListener(
+    "change",
+    async function() {
+
+        const files =
+            Array.from(
+                fileInput.files
+            );
+
+
+        if (
+            files.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        await uploadFiles(
+            files
+        );
+
+
+        /*
+            Reset picker so the same file
+            can be selected again later.
+        */
+
+        fileInput.value =
+            "";
+
+    }
+);
+
+
+/* =====================================================
+   UPLOAD MULTIPLE FILES
+===================================================== */
+
+async function uploadFiles(files) {
+
+    if (
+        uploading ||
+        files.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    uploading =
+        true;
+
+
+    uploadButton.disabled =
+        true;
+
+
+    uploadArea.style.display =
+        "block";
+
+
+    uploadProgress.style.width =
+        "0%";
+
+
+    uploadPercent.textContent =
+        "0%";
+
+
+    uploadMessage.className =
+        "upload-message";
+
+
+    let successCount =
+        0;
+
+
+    let failedCount =
+        0;
+
+
+    for (
+        let i = 0;
+        i < files.length;
+        i++
+    ) {
+
+        const file =
+            files[i];
+
+
+        uploadTitle.textContent =
+            "Uploading " +
+            (i + 1) +
+            " of " +
+            files.length;
+
+
+        uploadMessage.className =
+            "upload-message";
+
+
+        uploadMessage.textContent =
+            file.name;
+
+
+        /*
+            GitHub Contents API upload
+            should not be used for files
+            above 100 MB.
+        */
+
+        if (
+            file.size >
+            100 * 1024 * 1024
+        ) {
+
+            failedCount++;
+
+
+            uploadMessage.className =
+                "upload-message upload-error";
+
+
+            uploadMessage.textContent =
+                "❌ File is larger than 100 MB: " +
+                file.name;
+
+
+            continue;
+
+        }
+
+
+        try {
+
+            /*
+                Convert selected file
+                to Base64
+            */
+
+            const base64 =
+                await fileToBase64(
+                    file
+                );
+
+
+            /*
+                Send file to
+                Cloudflare Worker
+            */
+
+            const response =
+                await fetch(
+                    WORKER_URL +
+                    "/upload",
+                    {
+
+                        method:
+                            "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify(
+                                {
+
+                                    filename:
+                                        file.name,
+
+                                    content:
+                                        base64
+
+                                }
+                            )
+
+                    }
+                );
+
+
+            let result;
+
+
+            try {
+
+                result =
+                    await response.json();
+
+            }
+
+            catch {
+
+                result = {
+                    error:
+                        "Worker returned an invalid response."
+                };
+
+            }
+
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    result.error ||
+                    "Upload failed."
+                );
+
+            }
+
+
+            successCount++;
+
+
+        }
+
+        catch (
+            error
+        ) {
+
+            failedCount++;
+
+
+            console.error(
+                error
+            );
+
+
+            uploadMessage.className =
+                "upload-message upload-error";
+
+
+            uploadMessage.textContent =
+                "❌ " +
+                file.name +
+                ": " +
+                error.message;
+
+        }
+
+
+        /*
+            Overall progress
+        */
+
+        const percentage =
+            Math.round(
+                (
+                    (i + 1) /
+                    files.length
+                ) *
+                100
+            );
+
+
+        uploadProgress.style.width =
+            percentage +
+            "%";
+
+
+        uploadPercent.textContent =
+            percentage +
+            "%";
+
+    }
+
+
+    /* =================================================
+       UPLOAD FINISHED
+    ================================================= */
+
+    if (
+        failedCount === 0
+    ) {
+
+        uploadTitle.textContent =
+            "Upload Complete";
+
+
+        uploadMessage.className =
+            "upload-message upload-success";
+
+
+        uploadMessage.textContent =
+            "✅ " +
+            successCount +
+            (
+                successCount === 1
+                    ? " file uploaded successfully."
+                    : " files uploaded successfully."
+            );
+
+    }
+
+    else {
+
+        uploadTitle.textContent =
+            "Upload Finished";
+
+
+        uploadMessage.className =
+            "upload-message upload-error";
+
+
+        uploadMessage.textContent =
+            "✅ " +
+            successCount +
+            " uploaded • ❌ " +
+            failedCount +
+            " failed";
+
+    }
+
+
+    uploadProgress.style.width =
+        "100%";
+
+
+    uploadPercent.textContent =
+        "100%";
+
+
+    /*
+        Wait briefly for GitHub
+        then automatically refresh.
+    */
+
+    await wait(
+        1000
+    );
+
+
+    searchInput.value =
+        "";
+
+
+    await loadFiles(
+        currentPath
+    );
+
+
+    uploading =
+        false;
+
+
+    uploadButton.disabled =
+        false;
+
+
+    /*
+        Hide successful progress box
+        after a few seconds.
+    */
+
+    if (
+        failedCount === 0
+    ) {
+
+        setTimeout(
+            function() {
+
+                if (
+                    !uploading
+                ) {
+
+                    uploadArea.style.display =
+                        "none";
+
+                }
+
+            },
+            3500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FILE TO BASE64
+===================================================== */
+
+function fileToBase64(file) {
+
+    return new Promise(
+        function(
+            resolve,
+            reject
+        ) {
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function() {
+
+                    try {
+
+                        const result =
+                            String(
+                                reader.result
+                            );
+
+
+                        const commaIndex =
+                            result.indexOf(
+                                ","
+                            );
+
+
+                        if (
+                            commaIndex === -1
+                        ) {
+
+                            reject(
+                                new Error(
+                                    "Unable to convert file."
+                                )
+                            );
+
+
+                            return;
+
+                        }
+
+
+                        const base64 =
+                            result.substring(
+                                commaIndex + 1
+                            );
+
+
+                        resolve(
+                            base64
+                        );
+
+                    }
+
+                    catch (
+                        error
+                    ) {
+
+                        reject(
+                            error
+                        );
+
+                    }
+
+                };
+
+
+            reader.onerror =
+                function() {
+
+                    reject(
+                        new Error(
+                            "Unable to read the selected file."
+                        )
+                    );
+
+                };
+
+
+            reader.readAsDataURL(
+                file
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   DRAG AND DROP
+===================================================== */
+
+let dragCounter =
+    0;
+
+
+document.addEventListener(
+    "dragenter",
+    function(event) {
+
+        event.preventDefault();
+
+
+        dragCounter++;
+
+
+        if (
+            !uploading
+        ) {
+
+            dropArea.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "dragover",
+    function(event) {
+
+        event.preventDefault();
+
+    }
+);
+
+
+document.addEventListener(
+    "dragleave",
+    function(event) {
+
+        event.preventDefault();
+
+
+        dragCounter--;
+
+
+        if (
+            dragCounter <= 0
+        ) {
+
+            dragCounter =
+                0;
+
+
+            dropArea.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "drop",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        dragCounter =
+            0;
+
+
+        dropArea.classList.remove(
+            "active"
+        );
+
+
+        if (
+            uploading
+        ) {
+
+            return;
+
+        }
+
+
+        const files =
+            Array.from(
+                event.dataTransfer.files
+            );
+
+
+        if (
+            files.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        await uploadFiles(
+            files
+        );
+
+    }
+);
+
+
+/* =====================================================
    OPEN FOLDER
 ===================================================== */
 
@@ -1221,48 +2087,6 @@ refreshButton.addEventListener(
 
 
 /* =====================================================
-   UPLOAD
-===================================================== */
-
-uploadButton.addEventListener(
-    "click",
-    function() {
-
-        let uploadURL =
-            "https://github.com/" +
-            OWNER +
-            "/" +
-            REPO +
-            "/upload/" +
-            BRANCH;
-
-
-        /*
-        If currently inside a folder,
-        upload to that folder.
-        */
-
-        if (currentPath !== "") {
-
-            uploadURL +=
-                "/" +
-                encodeGitHubPath(
-                    currentPath
-                );
-
-        }
-
-
-        window.open(
-            uploadURL,
-            "_blank"
-        );
-
-    }
-);
-
-
-/* =====================================================
    SEARCH
 ===================================================== */
 
@@ -1276,7 +2100,9 @@ searchInput.addEventListener(
                 .toLowerCase();
 
 
-        if (keyword === "") {
+        if (
+            keyword === ""
+        ) {
 
             renderFiles(
                 currentFiles
@@ -1322,8 +2148,6 @@ function updateBreadcrumb() {
         "";
 
 
-    /* HOME */
-
     const home =
         document.createElement(
             "span"
@@ -1345,7 +2169,9 @@ function updateBreadcrumb() {
                 "";
 
 
-            loadFiles("");
+            loadFiles(
+                ""
+            );
 
         };
 
@@ -1355,7 +2181,9 @@ function updateBreadcrumb() {
     );
 
 
-    if (currentPath === "") {
+    if (
+        currentPath === ""
+    ) {
 
         return;
 
@@ -1363,7 +2191,9 @@ function updateBreadcrumb() {
 
 
     const parts =
-        currentPath.split("/");
+        currentPath.split(
+            "/"
+        );
 
 
     let builtPath =
@@ -1373,14 +2203,14 @@ function updateBreadcrumb() {
     parts.forEach(
         function(part) {
 
-            if (part === "") {
+            if (
+                part === ""
+            ) {
 
                 return;
 
             }
 
-
-            /* SEPARATOR */
 
             const separator =
                 document.createElement(
@@ -1401,9 +2231,9 @@ function updateBreadcrumb() {
             );
 
 
-            /* PATH */
-
-            if (builtPath === "") {
+            if (
+                builtPath === ""
+            ) {
 
                 builtPath =
                     part;
@@ -1422,8 +2252,6 @@ function updateBreadcrumb() {
             const savedPath =
                 builtPath;
 
-
-            /* CRUMB */
 
             const crumb =
                 document.createElement(
@@ -1470,7 +2298,9 @@ function updateBreadcrumb() {
 function getExtension(filename) {
 
     const index =
-        filename.lastIndexOf(".");
+        filename.lastIndexOf(
+            "."
+        );
 
 
     if (
@@ -1503,7 +2333,9 @@ function getFileType(filename) {
         );
 
 
-    if (extension === "") {
+    if (
+        extension === ""
+    ) {
 
         return "File";
 
@@ -1532,16 +2364,11 @@ function getFileIcon(filename) {
 
     const icons = {
 
-        /* PowerPoint */
-
         ppt:
             "📊",
 
         pptx:
             "📊",
-
-
-        /* Excel */
 
         xls:
             "📗",
@@ -1552,23 +2379,14 @@ function getFileIcon(filename) {
         csv:
             "📗",
 
-
-        /* Word */
-
         doc:
             "📘",
 
         docx:
             "📘",
 
-
-        /* PDF */
-
         pdf:
             "📕",
-
-
-        /* Text */
 
         txt:
             "📄",
@@ -1578,9 +2396,6 @@ function getFileIcon(filename) {
 
         md:
             "📝",
-
-
-        /* Images */
 
         jpg:
             "🖼️",
@@ -1600,9 +2415,6 @@ function getFileIcon(filename) {
         svg:
             "🖼️",
 
-
-        /* Compressed */
-
         zip:
             "📦",
 
@@ -1618,9 +2430,6 @@ function getFileIcon(filename) {
         gz:
             "📦",
 
-
-        /* Video */
-
         mp4:
             "🎬",
 
@@ -1633,9 +2442,6 @@ function getFileIcon(filename) {
         mkv:
             "🎬",
 
-
-        /* Audio */
-
         mp3:
             "🎵",
 
@@ -1644,9 +2450,6 @@ function getFileIcon(filename) {
 
         flac:
             "🎵",
-
-
-        /* Web */
 
         html:
             "🌐",
@@ -1665,9 +2468,6 @@ function getFileIcon(filename) {
 
         xml:
             "⚙️",
-
-
-        /* Scripts */
 
         py:
             "🐍",
@@ -1774,13 +2574,15 @@ function formatBytes(bytes) {
 
 
 /* =====================================================
-   ENCODE PATH
+   PATH ENCODING
 ===================================================== */
 
 function encodeGitHubPath(path) {
 
     return path
+
         .split("/")
+
         .map(
             function(part) {
 
@@ -1790,6 +2592,7 @@ function encodeGitHubPath(path) {
 
             }
         )
+
         .join("/");
 
 }
@@ -1806,7 +2609,9 @@ function updateFileCount(files) {
             .trim() !== "";
 
 
-    if (searching) {
+    if (
+        searching
+    ) {
 
         fileCount.textContent =
             files.length +
@@ -1903,8 +2708,6 @@ function showError(message) {
         '<strong>Unable to load files</strong>' +
         '<br><br>' +
         escapeHTML(message) +
-        '<br><br>' +
-        'Please refresh the page.' +
         '</div>';
 
 
@@ -1936,7 +2739,27 @@ function escapeHTML(text) {
 
 
 /* =====================================================
-   INITIAL LOAD
+   WAIT
+===================================================== */
+
+function wait(milliseconds) {
+
+    return new Promise(
+        function(resolve) {
+
+            setTimeout(
+                resolve,
+                milliseconds
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   INITIAL START
 ===================================================== */
 
 loadFiles("");
