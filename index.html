@@ -688,10 +688,10 @@ const MAX_UPLOAD_BYTES =
 
 
 /* ======================================================
-   10-MINUTE INACTIVITY LOGOUT
+   5-MINUTE INACTIVITY LOGOUT
    ====================================================== */
 
-const INACTIVITY_MINUTES = 10;
+const INACTIVITY_MINUTES = 5;
 
 const INACTIVITY_LIMIT =
   INACTIVITY_MINUTES * 60 * 1000;
@@ -1180,7 +1180,7 @@ function checkInactivity() {
 
   /*
     DIRECT LOGOUT AFTER
-    10 MINUTES OF INACTIVITY
+    5 MINUTES OF INACTIVITY
   */
 
   if (
@@ -1188,7 +1188,7 @@ function checkInactivity() {
   ) {
 
     performAutomaticLogout(
-      "You were automatically logged out after 10 minutes of inactivity."
+      "You were automatically logged out after 5 minutes of inactivity."
     );
 
   }
