@@ -7,7 +7,14 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1f2937}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f3f6fb;
+  color:#1f2937
+}
+
 .hidden{display:none!important}
 
 .header{
@@ -16,7 +23,10 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1
   padding:24px 20px
 }
 
-.header-inner,.container{max-width:1200px;margin:auto}
+.header-inner,.container{
+  max-width:1200px;
+  margin:auto
+}
 
 .header-row{
   display:flex;
@@ -25,10 +35,20 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1
   gap:16px
 }
 
-.header h1{margin:0;font-size:27px}
-.header p{margin:6px 0 0;font-size:14px;opacity:.9}
+.header h1{
+  margin:0;
+  font-size:27px
+}
 
-.container{padding:24px 15px}
+.header p{
+  margin:6px 0 0;
+  font-size:14px;
+  opacity:.9
+}
+
+.container{
+  padding:24px 15px
+}
 
 .card{
   background:#fff;
@@ -44,9 +64,21 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1
   padding:30px 15px
 }
 
-.login-card{width:100%;max-width:420px;padding:28px}
-.login-icon{text-align:center;font-size:42px}
-.login-card h2{text-align:center;margin:10px 0 6px}
+.login-card{
+  width:100%;
+  max-width:420px;
+  padding:28px
+}
+
+.login-icon{
+  text-align:center;
+  font-size:42px
+}
+
+.login-card h2{
+  text-align:center;
+  margin:10px 0 6px
+}
 
 .login-card p{
   text-align:center;
@@ -55,7 +87,9 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1
   margin:0 0 22px
 }
 
-.field{margin-bottom:14px}
+.field{
+  margin-bottom:14px
+}
 
 .field label{
   display:block;
@@ -87,10 +121,23 @@ button{
   cursor:pointer
 }
 
-.primary{background:#2563eb;color:#fff}
-.primary:hover{background:#1d4ed8}
-.green{background:#16a34a;color:#fff}
-.green:hover{background:#15803d}
+.primary{
+  background:#2563eb;
+  color:#fff
+}
+
+.primary:hover{
+  background:#1d4ed8
+}
+
+.green{
+  background:#16a34a;
+  color:#fff
+}
+
+.green:hover{
+  background:#15803d
+}
 
 .logout{
   background:rgba(255,255,255,.15);
@@ -98,7 +145,10 @@ button{
   color:#fff
 }
 
-.login-btn{width:100%;height:45px}
+.login-btn{
+  width:100%;
+  height:45px
+}
 
 .error-text{
   color:#dc2626;
@@ -107,9 +157,10 @@ button{
   margin-top:12px
 }
 
-.success-text{color:#15803d}
-
-.storage-card{padding:18px;margin-bottom:15px}
+.storage-card{
+  padding:18px;
+  margin-bottom:15px
+}
 
 .storage-top{
   display:grid;
@@ -202,7 +253,9 @@ button{
   outline:none
 }
 
-.search:focus{border-color:#2563eb}
+.search:focus{
+  border-color:#2563eb
+}
 
 .breadcrumb{
   padding:14px 17px;
@@ -215,7 +268,10 @@ button{
   cursor:pointer
 }
 
-.sep{color:#9ca3af;margin:0 6px}
+.sep{
+  color:#9ca3af;
+  margin:0 6px
+}
 
 .operation{
   padding:16px;
@@ -261,9 +317,13 @@ button{
   font-weight:700
 }
 
-.drop.active{display:block}
+.drop.active{
+  display:block
+}
 
-.storage{overflow:hidden}
+.storage{
+  overflow:hidden
+}
 
 .table-head,.file-row{
   display:grid;
@@ -285,7 +345,9 @@ button{
   border-top:1px solid #e5e7eb
 }
 
-.file-row:hover{background:#f8fafc}
+.file-row:hover{
+  background:#f8fafc
+}
 
 .file-info{
   display:flex;
@@ -301,7 +363,9 @@ button{
   flex-shrink:0
 }
 
-.file-text{min-width:0}
+.file-text{
+  min-width:0
+}
 
 .file-name{
   font-size:14px;
@@ -404,11 +468,15 @@ button{
 
 <section id="loginView" class="login-wrap">
   <div class="card login-card">
+
     <div class="login-icon">🔐</div>
+
     <h2>Brian File Storage</h2>
+
     <p>Administrator login required</p>
 
     <form id="loginForm">
+
       <div class="field">
         <label for="username">Username</label>
         <input id="username" autocomplete="username" required>
@@ -424,129 +492,181 @@ button{
       </button>
 
       <div id="loginMessage" class="error-text"></div>
+
     </form>
+
   </div>
 </section>
+
 
 <section id="appView" class="hidden">
 
 <header class="header">
+
   <div class="header-inner header-row">
+
     <div>
       <h1>📁 Brian File Storage</h1>
       <p>Secure GitHub file management</p>
     </div>
 
-    <button id="logoutButton" class="logout">🚪 Logout</button>
+    <button id="logoutButton" class="logout">
+      🚪 Logout
+    </button>
+
   </div>
+
 </header>
+
 
 <main class="container">
 
 <section class="card storage-card">
 
-<div class="storage-top">
+  <div class="storage-top">
 
-<div>
-<div class="metric-label">Current visible files</div>
-<div id="usedStorage" class="metric-value">Calculating...</div>
-</div>
+    <div>
+      <div class="metric-label">
+        Current visible files
+      </div>
 
-<div>
-<div class="metric-label">Estimated headroom to 10 GB guide</div>
-<div id="remainingStorage" class="metric-value">Calculating...</div>
-</div>
+      <div id="usedStorage" class="metric-value">
+        Calculating...
+      </div>
+    </div>
 
-</div>
+    <div>
+      <div class="metric-label">
+        Estimated headroom to 10 GB guide
+      </div>
 
-<div class="bar">
-<div id="storageBar" class="bar-fill"></div>
-</div>
+      <div id="remainingStorage" class="metric-value">
+        Calculating...
+      </div>
+    </div>
 
-<div class="storage-line">
-<span id="storagePercent">0.00% of 10 GB guide</span>
-<span id="storageExact">0 B used</span>
-</div>
+  </div>
 
-<div id="storageStatus" class="storage-status ok">
-🟢 STORAGE OK
-</div>
+  <div class="bar">
+    <div id="storageBar" class="bar-fill"></div>
+  </div>
 
-<div class="guide-note">
-Current-file usage is calculated from the files on the current branch.
-Estimated headroom is compared with a 10 GB repository-health guide;
-Git history can make the real repository size larger.
-</div>
+  <div class="storage-line">
+
+    <span id="storagePercent">
+      0.00% of 10 GB guide
+    </span>
+
+    <span id="storageExact">
+      0 B used
+    </span>
+
+  </div>
+
+  <div id="storageStatus" class="storage-status ok">
+    🟢 STORAGE OK
+  </div>
+
+  <div class="guide-note">
+    Current-file usage is calculated from the files on the current branch.
+    Estimated headroom is compared with a 10 GB repository-health guide;
+    Git history can make the real repository size larger.
+  </div>
 
 </section>
+
 
 <div class="card toolbar">
 
-<input
-id="searchInput"
-class="search"
-placeholder="🔍 Search files and folders..."
-autocomplete="off">
+  <input
+    id="searchInput"
+    class="search"
+    placeholder="🔍 Search files and folders..."
+    autocomplete="off"
+  >
 
-<button id="uploadButton" class="green">
-📤 Upload File
-</button>
+  <button id="uploadButton" class="green">
+    📤 Upload File
+  </button>
 
-<button id="refreshButton" class="primary">
-🔄 Refresh
-</button>
+  <button id="refreshButton" class="primary">
+    🔄 Refresh
+  </button>
 
-<input id="fileInput" type="file" multiple hidden>
+  <input id="fileInput" type="file" multiple hidden>
 
 </div>
+
 
 <div id="dropArea" class="drop">
-📤 Drop files here to upload
+  📤 Drop files here to upload
 </div>
+
 
 <div id="operation" class="card operation hidden">
 
-<div class="operation-head">
-<span id="operationTitle">Working...</span>
-<span id="operationPercent"></span>
+  <div class="operation-head">
+
+    <span id="operationTitle">
+      Working...
+    </span>
+
+    <span id="operationPercent"></span>
+
+  </div>
+
+  <div class="op-bar">
+    <div id="operationBar" class="op-fill"></div>
+  </div>
+
+  <div id="operationMessage" class="op-message"></div>
+
 </div>
 
-<div class="op-bar">
-<div id="operationBar" class="op-fill"></div>
-</div>
-
-<div id="operationMessage" class="op-message"></div>
-
-</div>
 
 <div id="breadcrumb" class="card breadcrumb"></div>
 
+
 <section class="card storage">
 
-<div class="table-head">
-<div>NAME</div>
-<div>SIZE</div>
-<div style="text-align:right">ACTIONS</div>
-</div>
+  <div class="table-head">
 
-<div id="fileList">
-<div class="status">Loading...</div>
-</div>
+    <div>NAME</div>
+
+    <div>SIZE</div>
+
+    <div style="text-align:right">
+      ACTIONS
+    </div>
+
+  </div>
+
+  <div id="fileList">
+    <div class="status">Loading...</div>
+  </div>
 
 </section>
 
+
 <div class="info">
-<span id="fileCount"></span>
-<span>Protected admin session</span>
+
+  <span id="fileCount"></span>
+
+  <span>
+    Protected admin session
+  </span>
+
 </div>
 
 </main>
 
+
 <div class="footer">
-Brian File Storage · GitHub Pages
+  Brian File Storage · GitHub Pages
 </div>
 
 </section>
+
 
 <script>
 
@@ -566,6 +686,17 @@ const CRITICAL_PERCENT = 90;
 const MAX_UPLOAD_BYTES =
   100 * 1024 * 1024;
 
+
+/* ======================================================
+   10-MINUTE INACTIVITY LOGOUT
+   ====================================================== */
+
+const INACTIVITY_MINUTES = 10;
+
+const INACTIVITY_LIMIT =
+  INACTIVITY_MINUTES * 60 * 1000;
+
+
 let sessionToken =
   sessionStorage.getItem("brianStorageSession") || "";
 
@@ -580,10 +711,30 @@ let allTreeFiles = [];
 let currentUsageBytes = 0;
 let busy = false;
 
-const $ = (id) =>
+
+/* INACTIVITY VARIABLES */
+
+let lastActivityTime = Date.now();
+
+let inactivityCheckInterval = null;
+
+let automaticLogoutRunning = false;
+
+let lastActivityUpdate = 0;
+
+
+const $ = id =>
   document.getElementById(id);
 
-$("loginForm").addEventListener("submit", login);
+
+/* ======================================================
+   STANDARD EVENT LISTENERS
+   ====================================================== */
+
+$("loginForm").addEventListener(
+  "submit",
+  login
+);
 
 $("logoutButton").addEventListener(
   "click",
@@ -593,9 +744,11 @@ $("logoutButton").addEventListener(
 $("uploadButton").addEventListener(
   "click",
   () => {
+
     if (!busy) {
       $("fileInput").click();
     }
+
   }
 );
 
@@ -613,6 +766,7 @@ $("fileInput").addEventListener(
     if (files.length) {
       await uploadFiles(files);
     }
+
   }
 );
 
@@ -626,6 +780,90 @@ $("searchInput").addEventListener(
   filterFiles
 );
 
+
+/* ======================================================
+   USER ACTIVITY DETECTION
+   ====================================================== */
+
+/*
+   Any real interaction with the page
+   resets the 10-minute inactivity timer.
+*/
+
+[
+  "mousedown",
+  "keydown",
+  "touchstart",
+  "pointerdown",
+  "scroll"
+].forEach(eventName => {
+
+  document.addEventListener(
+    eventName,
+    () => registerActivity(false),
+    { passive:true }
+  );
+
+});
+
+
+/*
+   When Safari / Chrome / Edge becomes
+   visible again, immediately check
+   how much real time has passed.
+*/
+
+document.addEventListener(
+  "visibilitychange",
+  () => {
+
+    if (
+      $("appView")
+        .classList
+        .contains("hidden")
+    ) {
+      return;
+    }
+
+    if (
+      document.visibilityState === "visible"
+    ) {
+
+      checkInactivity();
+
+    }
+
+  }
+);
+
+
+/*
+   Extra desktop/laptop check when the
+   browser window becomes active again.
+*/
+
+window.addEventListener(
+  "focus",
+  () => {
+
+    if (
+      !$("appView")
+        .classList
+        .contains("hidden")
+    ) {
+
+      checkInactivity();
+
+    }
+
+  }
+);
+
+
+/* ======================================================
+   INITIALIZE
+   ====================================================== */
+
 async function initialize() {
 
   if (
@@ -636,14 +874,24 @@ async function initialize() {
 
     showApp();
 
+    startInactivityMonitor();
+
     await refreshAll();
 
   } else {
 
     clearSession();
+
     showLogin();
+
   }
+
 }
+
+
+/* ======================================================
+   LOGIN
+   ====================================================== */
 
 async function login(event) {
 
@@ -656,31 +904,38 @@ async function login(event) {
   $("loginButton").textContent =
     "Logging in...";
 
+
   try {
 
     const response =
       await fetch(
         WORKER_URL + "/login",
         {
-          method: "POST",
 
-          headers: {
+          method:"POST",
+
+          headers:{
             "Content-Type":
               "application/json"
           },
 
-          body: JSON.stringify({
+          body:JSON.stringify({
+
             username:
               $("username").value,
 
             password:
               $("password").value
+
           })
+
         }
       );
 
+
     const result =
       await safeJSON(response);
+
 
     if (
       !response.ok ||
@@ -691,33 +946,43 @@ async function login(event) {
         result.error ||
         "Login failed."
       );
+
     }
+
 
     sessionToken =
       result.token;
+
 
     sessionExpires =
       Number(
         result.expires || 0
       );
 
+
     sessionStorage.setItem(
       "brianStorageSession",
       sessionToken
     );
+
 
     sessionStorage.setItem(
       "brianStorageExpires",
       String(sessionExpires)
     );
 
+
     $("password").value = "";
+
 
     showApp();
 
+    startInactivityMonitor();
+
     await refreshAll();
 
-  } catch (error) {
+
+  } catch(error) {
 
     $("loginMessage").textContent =
       error.message;
@@ -728,8 +993,15 @@ async function login(event) {
 
     $("loginButton").textContent =
       "Login";
+
   }
+
 }
+
+
+/* ======================================================
+   VERIFY SESSION
+   ====================================================== */
 
 async function verifySession() {
 
@@ -739,9 +1011,12 @@ async function verifySession() {
       await fetch(
         WORKER_URL + "/verify",
         {
-          method: "POST",
+
+          method:"POST",
+
           headers:
             authHeaders(false)
+
         }
       );
 
@@ -750,80 +1025,344 @@ async function verifySession() {
   } catch {
 
     return false;
+
   }
+
 }
+
+
+/* ======================================================
+   START INACTIVITY MONITOR
+   ====================================================== */
+
+function startInactivityMonitor() {
+
+  stopInactivityMonitor();
+
+  automaticLogoutRunning = false;
+
+  lastActivityTime =
+    Date.now();
+
+  lastActivityUpdate =
+    lastActivityTime;
+
+
+  inactivityCheckInterval =
+    setInterval(
+      checkInactivity,
+      1000
+    );
+
+}
+
+
+/* ======================================================
+   STOP INACTIVITY MONITOR
+   ====================================================== */
+
+function stopInactivityMonitor() {
+
+  if (inactivityCheckInterval) {
+
+    clearInterval(
+      inactivityCheckInterval
+    );
+
+    inactivityCheckInterval = null;
+
+  }
+
+}
+
+
+/* ======================================================
+   REGISTER USER ACTIVITY
+   ====================================================== */
+
+function registerActivity(force = false) {
+
+  if (!sessionToken) {
+    return;
+  }
+
+
+  if (
+    $("appView")
+      .classList
+      .contains("hidden")
+  ) {
+    return;
+  }
+
+
+  /*
+    Do not count background browser
+    events as user activity.
+  */
+
+  if (
+    document.visibilityState === "hidden"
+  ) {
+    return;
+  }
+
+
+  const now =
+    Date.now();
+
+
+  /*
+    Prevent unnecessary rapid updates
+    during scrolling and pointer events.
+  */
+
+  if (
+    !force &&
+    now - lastActivityUpdate < 1000
+  ) {
+    return;
+  }
+
+
+  lastActivityUpdate =
+    now;
+
+  lastActivityTime =
+    now;
+
+}
+
+
+/* ======================================================
+   CHECK INACTIVITY
+   ====================================================== */
+
+function checkInactivity() {
+
+  if (!sessionToken) {
+    return;
+  }
+
+
+  if (
+    $("appView")
+      .classList
+      .contains("hidden")
+  ) {
+    return;
+  }
+
+
+  /*
+    First check the Worker's
+    maximum overall session expiration.
+  */
+
+  if (
+    sessionExpires &&
+    Date.now() >= sessionExpires
+  ) {
+
+    performAutomaticLogout(
+      "Your session has expired. Please login again."
+    );
+
+    return;
+
+  }
+
+
+  const elapsed =
+    Date.now() -
+    lastActivityTime;
+
+
+  /*
+    DIRECT LOGOUT AFTER
+    10 MINUTES OF INACTIVITY
+  */
+
+  if (
+    elapsed >= INACTIVITY_LIMIT
+  ) {
+
+    performAutomaticLogout(
+      "You were automatically logged out after 10 minutes of inactivity."
+    );
+
+  }
+
+}
+
+
+/* ======================================================
+   AUTOMATIC LOGOUT
+   ====================================================== */
+
+function performAutomaticLogout(message) {
+
+  if (automaticLogoutRunning) {
+    return;
+  }
+
+
+  automaticLogoutRunning = true;
+
+
+  stopInactivityMonitor();
+
+
+  clearSession();
+
+
+  showLogin();
+
+
+  $("password").value = "";
+
+
+  $("loginMessage").textContent =
+    message;
+
+}
+
+
+/* ======================================================
+   MANUAL LOGOUT
+   ====================================================== */
 
 function logout() {
 
+  stopInactivityMonitor();
+
   clearSession();
+
   showLogin();
+
+  $("password").value = "";
+
+  $("loginMessage").textContent = "";
+
 }
+
+
+/* ======================================================
+   CLEAR SESSION
+   ====================================================== */
 
 function clearSession() {
 
   sessionToken = "";
+
   sessionExpires = 0;
+
 
   sessionStorage.removeItem(
     "brianStorageSession"
   );
 
+
   sessionStorage.removeItem(
     "brianStorageExpires"
   );
+
 }
+
+
+/* ======================================================
+   SHOW LOGIN
+   ====================================================== */
 
 function showLogin() {
 
-  $("appView").classList.add(
-    "hidden"
-  );
+  $("appView")
+    .classList
+    .add("hidden");
 
-  $("loginView").classList.remove(
-    "hidden"
-  );
+
+  $("loginView")
+    .classList
+    .remove("hidden");
+
 
   setTimeout(
     () => $("username").focus(),
     50
   );
+
 }
+
+
+/* ======================================================
+   SHOW APPLICATION
+   ====================================================== */
 
 function showApp() {
 
-  $("loginView").classList.add(
-    "hidden"
-  );
+  $("loginView")
+    .classList
+    .add("hidden");
 
-  $("appView").classList.remove(
-    "hidden"
-  );
+
+  $("appView")
+    .classList
+    .remove("hidden");
+
 }
+
+
+/* ======================================================
+   AUTH HEADERS
+   ====================================================== */
 
 function authHeaders(json = true) {
 
   const h = {
+
     "Authorization":
-      "Bearer " + sessionToken
+      "Bearer " +
+      sessionToken
+
   };
 
+
   if (json) {
+
     h["Content-Type"] =
       "application/json";
+
   }
 
+
   return h;
+
 }
+
+
+/* ======================================================
+   REFRESH
+   ====================================================== */
 
 async function refreshAll() {
 
   $("searchInput").value = "";
 
+
   await Promise.all([
+
     loadFiles(currentPath),
+
     loadStorageUsage()
+
   ]);
+
 }
+
+
+/* ======================================================
+   LOAD FILE LIST
+   ====================================================== */
 
 async function loadFiles(path = "") {
 
@@ -831,35 +1370,47 @@ async function loadFiles(path = "") {
 
   updateBreadcrumb();
 
+
   $("fileList").innerHTML =
     '<div class="status">Loading files...</div>';
+
 
   try {
 
     let url =
       `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
 
+
     if (path) {
 
-      url += "/" +
+      url +=
+        "/" +
         encodePath(path);
+
     }
+
 
     url +=
       `?ref=${encodeURIComponent(BRANCH)}&_=${Date.now()}`;
+
 
     const response =
       await fetch(
         url,
         {
-          cache: "no-store",
 
-          headers: {
+          cache:"no-store",
+
+          headers:{
+
             "Accept":
               "application/vnd.github+json"
+
           }
+
         }
       );
+
 
     if (!response.ok) {
 
@@ -867,61 +1418,89 @@ async function loadFiles(path = "") {
         "Unable to load repository files. HTTP " +
         response.status
       );
+
     }
+
 
     const data =
       await response.json();
+
 
     if (!Array.isArray(data)) {
 
       throw new Error(
         "This location is not a folder."
       );
+
     }
+
 
     currentFiles =
       data
         .filter(
-          (x) =>
+          x =>
             x.name.toLowerCase() !==
             "index.html"
         )
         .sort(sortItems);
 
-    renderFiles(currentFiles);
 
-  } catch (error) {
+    renderFiles(
+      currentFiles
+    );
+
+
+  } catch(error) {
 
     $("fileList").innerHTML =
       `<div class="status" style="color:#dc2626">⚠️ ${escapeHTML(error.message)}</div>`;
+
   }
+
 }
 
-function sortItems(a, b) {
 
-  if (a.type !== b.type) {
+/* ======================================================
+   SORT
+   ====================================================== */
+
+function sortItems(a,b) {
+
+  if (
+    a.type !== b.type
+  ) {
 
     return a.type === "dir"
       ? -1
       : 1;
+
   }
+
 
   return a.name.localeCompare(
     b.name,
     undefined,
     {
-      numeric: true,
-      sensitivity: "base"
+      numeric:true,
+      sensitivity:"base"
     }
   );
+
 }
+
+
+/* ======================================================
+   RENDER FILES
+   ====================================================== */
 
 function renderFiles(files) {
 
   const host =
     $("fileList");
 
+
   host.innerHTML = "";
+
 
   if (!files.length) {
 
@@ -931,9 +1510,13 @@ function renderFiles(files) {
     updateCount(files);
 
     return;
+
   }
 
-  for (const item of files) {
+
+  for (
+    const item of files
+  ) {
 
     const row =
       document.createElement("div");
@@ -941,11 +1524,13 @@ function renderFiles(files) {
     row.className =
       "file-row";
 
+
     const info =
       document.createElement("div");
 
     info.className =
       "file-info";
+
 
     const icon =
       document.createElement("div");
@@ -958,11 +1543,13 @@ function renderFiles(files) {
         ? "📁"
         : fileIcon(item.name);
 
+
     const text =
       document.createElement("div");
 
     text.className =
       "file-text";
+
 
     const name =
       document.createElement("div");
@@ -981,6 +1568,7 @@ function renderFiles(files) {
     name.title =
       item.name;
 
+
     const sub =
       document.createElement("div");
 
@@ -992,15 +1580,18 @@ function renderFiles(files) {
         ? "Folder"
         : fileType(item.name);
 
+
     text.append(
       name,
       sub
     );
 
+
     info.append(
       icon,
       text
     );
+
 
     const size =
       document.createElement("div");
@@ -1013,13 +1604,17 @@ function renderFiles(files) {
         ? "Folder"
         : formatBytes(item.size);
 
+
     const actions =
       document.createElement("div");
 
     actions.className =
       "actions";
 
-    if (item.type === "dir") {
+
+    if (
+      item.type === "dir"
+    ) {
 
       const open =
         button(
@@ -1029,15 +1624,17 @@ function renderFiles(files) {
             openFolder(item.path)
         );
 
+
       actions.append(open);
+
 
       name.onclick =
         () =>
           openFolder(item.path);
 
+
     } else {
 
-      /* UPDATED DOWNLOAD BUTTON */
 
       const dl =
         button(
@@ -1047,6 +1644,7 @@ function renderFiles(files) {
             downloadFile(item)
         );
 
+
       const rn =
         button(
           "✏️ Rename",
@@ -1054,6 +1652,7 @@ function renderFiles(files) {
           () =>
             renameFile(item)
         );
+
 
       const del =
         button(
@@ -1063,12 +1662,15 @@ function renderFiles(files) {
             deleteFile(item)
         );
 
+
       actions.append(
         dl,
         rn,
         del
       );
+
     }
+
 
     row.append(
       info,
@@ -1076,11 +1678,20 @@ function renderFiles(files) {
       actions
     );
 
+
     host.append(row);
+
   }
 
+
   updateCount(files);
+
 }
+
+
+/* ======================================================
+   BUTTON CREATOR
+   ====================================================== */
 
 function button(
   text,
@@ -1089,9 +1700,8 @@ function button(
 ) {
 
   const b =
-    document.createElement(
-      "button"
-    );
+    document.createElement("button");
+
 
   b.textContent =
     text;
@@ -1102,24 +1712,33 @@ function button(
   b.onclick =
     handler;
 
+
   return b;
+
 }
 
+
 /* ======================================================
-   NEW DOWNLOAD FUNCTION
+   DOWNLOAD
    ====================================================== */
 
 async function downloadFile(item) {
 
   if (busy) return;
 
+
+  registerActivity(true);
+
+
   busy = true;
+
 
   showOperation(
     "Downloading file",
     item.name,
     ""
   );
+
 
   try {
 
@@ -1128,42 +1747,57 @@ async function downloadFile(item) {
       "/download?path=" +
       encodeURIComponent(item.path);
 
+
     const response =
       await fetch(
         url,
         {
-          method: "GET",
 
-          headers: {
+          method:"GET",
+
+          headers:{
+
             "Authorization":
               "Bearer " +
               sessionToken
+
           },
 
-          cache: "no-store"
+          cache:"no-store"
+
         }
       );
 
-    if (response.status === 401) {
+
+    if (
+      response.status === 401
+    ) {
+
+      stopInactivityMonitor();
 
       clearSession();
 
       showLogin();
 
+
       throw new Error(
         "Session expired. Please login again."
       );
+
     }
+
 
     if (!response.ok) {
 
       let message =
         "Download failed.";
 
+
       try {
 
         const result =
           await response.json();
+
 
         message =
           result.error ||
@@ -1171,40 +1805,51 @@ async function downloadFile(item) {
 
       } catch {}
 
+
       throw new Error(
         message
       );
+
     }
+
 
     showOperation(
       "Downloading file",
-      "Preparing " + item.name,
+      "Preparing " +
+      item.name,
       "70%"
     );
+
 
     const blob =
       await response.blob();
 
+
     const blobURL =
       URL.createObjectURL(blob);
+
 
     const link =
       document.createElement("a");
 
+
     link.href =
       blobURL;
+
 
     link.download =
       item.name;
 
+
     link.style.display =
       "none";
 
-    document.body.appendChild(
-      link
-    );
+
+    document.body.appendChild(link);
+
 
     link.click();
+
 
     setTimeout(
       () => {
@@ -1219,39 +1864,59 @@ async function downloadFile(item) {
       5000
     );
 
+
     showOperation(
       "Download Complete",
-      "✅ " + item.name +
+      "✅ " +
+      item.name +
       " downloaded.",
       "100%"
     );
 
+
     hideOperationLater();
 
-  } catch (error) {
+
+  } catch(error) {
 
     showOperation(
       "Download Failed",
-      "❌ " + error.message,
+      "❌ " +
+      error.message,
       ""
     );
+
 
     alert(
       error.message
     );
 
+
   } finally {
 
     busy = false;
+
   }
+
 }
+
+
+/* ======================================================
+   OPEN FOLDER
+   ====================================================== */
 
 function openFolder(path) {
 
   $("searchInput").value = "";
 
   loadFiles(path);
+
 }
+
+
+/* ======================================================
+   SEARCH
+   ====================================================== */
 
 function filterFiles() {
 
@@ -1261,49 +1926,70 @@ function filterFiles() {
       .trim()
       .toLowerCase();
 
+
   renderFiles(
+
     q
-      ? currentFiles.filter(
-          (x) =>
-            x.name
-              .toLowerCase()
-              .includes(q)
-        )
-      : currentFiles
+      ?
+      currentFiles.filter(
+        x =>
+          x.name
+            .toLowerCase()
+            .includes(q)
+      )
+      :
+      currentFiles
+
   );
+
 }
+
+
+/* ======================================================
+   BREADCRUMB
+   ====================================================== */
 
 function updateBreadcrumb() {
 
   const host =
     $("breadcrumb");
 
+
   host.innerHTML = "";
 
+
   const root =
-    document.createElement(
-      "span"
-    );
+    document.createElement("span");
+
 
   root.className =
     "crumb";
 
+
   root.textContent =
     "🏠 Storage";
 
-  root.onclick = () => {
 
-    $("searchInput").value =
-      "";
+  root.onclick =
+    () => {
 
-    loadFiles("");
-  };
+      $("searchInput").value = "";
+
+      loadFiles("");
+
+    };
+
 
   host.append(root);
 
-  if (!currentPath) return;
+
+  if (!currentPath) {
+    return;
+  }
+
 
   let built = "";
+
 
   for (
     const part
@@ -1315,40 +2001,53 @@ function updateBreadcrumb() {
         ? built + "/" + part
         : part;
 
-    const path = built;
+
+    const path =
+      built;
+
 
     const sep =
-      document.createElement(
-        "span"
-      );
+      document.createElement("span");
+
 
     sep.className =
       "sep";
 
+
     sep.textContent =
       ">";
 
+
     const crumb =
-      document.createElement(
-        "span"
-      );
+      document.createElement("span");
+
 
     crumb.className =
       "crumb";
 
+
     crumb.textContent =
       part;
+
 
     crumb.onclick =
       () =>
         loadFiles(path);
 
+
     host.append(
       sep,
       crumb
     );
+
   }
+
 }
+
+
+/* ======================================================
+   STORAGE USAGE
+   ====================================================== */
 
 async function loadStorageUsage() {
 
@@ -1357,63 +2056,86 @@ async function loadStorageUsage() {
     const url =
       `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/${encodeURIComponent(BRANCH)}?recursive=1&_=${Date.now()}`;
 
+
     const response =
       await fetch(
         url,
         {
-          cache: "no-store",
 
-          headers: {
+          cache:"no-store",
+
+          headers:{
+
             "Accept":
               "application/vnd.github+json"
+
           }
+
         }
       );
+
 
     if (!response.ok) {
 
       throw new Error(
         "Storage calculation unavailable."
       );
+
     }
+
 
     const data =
       await response.json();
 
+
     allTreeFiles =
       (data.tree || [])
         .filter(
-          (x) =>
+          x =>
             x.type === "blob" &&
             x.path.toLowerCase() !==
             "index.html"
         );
 
+
     currentUsageBytes =
       allTreeFiles.reduce(
-        (total, x) =>
+        (total,x) =>
           total +
           Number(x.size || 0),
         0
       );
 
+
     updateStorageMeter();
 
-  } catch {
+
+  } catch(error) {
+
 
     $("usedStorage").textContent =
       "Unavailable";
 
+
     $("remainingStorage").textContent =
       "Unavailable";
+
 
     $("storageStatus").className =
       "storage-status near";
 
+
     $("storageStatus").textContent =
       "⚠️ Unable to calculate current-file usage";
+
   }
+
 }
+
+
+/* ======================================================
+   STORAGE METER
+   ====================================================== */
 
 function updateStorageMeter() {
 
@@ -1424,11 +2146,13 @@ function updateStorageMeter() {
       currentUsageBytes
     );
 
+
   const percent =
     (
       currentUsageBytes /
       STORAGE_GUIDE_BYTES
     ) * 100;
+
 
   const capped =
     Math.min(
@@ -1436,11 +2160,13 @@ function updateStorageMeter() {
       percent
     );
 
+
   $("usedStorage").textContent =
     formatBytes(
       currentUsageBytes,
       3
     );
+
 
   $("remainingStorage").textContent =
     formatBytes(
@@ -1448,19 +2174,24 @@ function updateStorageMeter() {
       3
     );
 
+
   $("storagePercent").textContent =
     percent.toFixed(2) +
     "% of 10 GB guide";
+
 
   $("storageExact").textContent =
     currentUsageBytes.toLocaleString() +
     " bytes used";
 
+
   $("storageBar").style.width =
     capped + "%";
 
+
   const status =
     $("storageStatus");
+
 
   if (
     percent >=
@@ -1470,11 +2201,14 @@ function updateStorageMeter() {
     $("storageBar").style.background =
       "#dc2626";
 
+
     status.className =
       "storage-status critical";
 
+
     status.textContent =
       `🔴 STORAGE CRITICALLY FULL · Estimated headroom: ${formatBytes(remaining,3)}`;
+
 
   } else if (
     percent >=
@@ -1484,35 +2218,52 @@ function updateStorageMeter() {
     $("storageBar").style.background =
       "#f97316";
 
+
     status.className =
       "storage-status near";
 
+
     status.textContent =
       `🟠 STORAGE NEARLY FULL · Estimated headroom: ${formatBytes(remaining,3)}`;
+
 
   } else {
 
     $("storageBar").style.background =
       "#16a34a";
 
+
     status.className =
       "storage-status ok";
 
+
     status.textContent =
       `🟢 STORAGE OK · Estimated headroom: ${formatBytes(remaining,3)}`;
+
   }
+
 }
+
+
+/* ======================================================
+   UPLOAD
+   ====================================================== */
 
 async function uploadFiles(files) {
 
   if (busy) return;
 
+
+  registerActivity(true);
+
+
   const totalSelected =
     files.reduce(
-      (n, f) =>
+      (n,f) =>
         n + f.size,
       0
     );
+
 
   if (
     currentUsageBytes +
@@ -1525,14 +2276,17 @@ async function uploadFiles(files) {
     );
 
     return;
+
   }
+
 
   const tooLarge =
     files.find(
-      (f) =>
+      f =>
         f.size >
         MAX_UPLOAD_BYTES
     );
+
 
   if (tooLarge) {
 
@@ -1541,12 +2295,16 @@ async function uploadFiles(files) {
     );
 
     return;
+
   }
+
 
   busy = true;
 
+
   $("uploadButton").disabled =
     true;
+
 
   showOperation(
     "Uploading",
@@ -1554,8 +2312,10 @@ async function uploadFiles(files) {
     "0%"
   );
 
+
   let success = 0;
   let failed = 0;
+
 
   for (
     let i = 0;
@@ -1563,11 +2323,15 @@ async function uploadFiles(files) {
     i++
   ) {
 
+    registerActivity(true);
+
+
     const file =
       files[i];
 
+
     showOperation(
-      `Uploading ${i + 1} of ${files.length}`,
+      `Uploading ${i+1} of ${files.length}`,
       file.name,
       Math.round(
         i /
@@ -1576,26 +2340,23 @@ async function uploadFiles(files) {
       ) + "%"
     );
 
+
     try {
 
       const content =
-        await fileToBase64(
-          file
-        );
+        await fileToBase64(file);
+
 
       const result =
         await protectedRequest(
           "/upload",
           {
-            filename:
-              file.name,
-
-            path:
-              currentPath,
-
+            filename:file.name,
+            path:currentPath,
             content
           }
         );
+
 
       if (!result.success) {
 
@@ -1603,41 +2364,54 @@ async function uploadFiles(files) {
           result.error ||
           "Upload failed."
         );
+
       }
+
 
       success++;
 
-    } catch (error) {
+
+    } catch(error) {
 
       failed++;
+
 
       showOperation(
         "Upload error",
         error.message,
         ""
       );
+
     }
+
 
     const p =
       Math.round(
-        (i + 1) /
+        (i+1) /
         files.length *
         100
       );
 
+
     $("operationBar").style.width =
       p + "%";
 
+
     $("operationPercent").textContent =
       p + "%";
+
   }
 
+
   busy = false;
+
 
   $("uploadButton").disabled =
     false;
 
+
   showOperation(
+
     failed
       ? "Upload Finished"
       : "Upload Complete",
@@ -1645,16 +2419,30 @@ async function uploadFiles(files) {
     `✅ ${success} uploaded${failed ? ` · ❌ ${failed} failed` : ""}`,
 
     "100%"
+
   );
+
 
   await refreshAll();
 
+
   if (!failed) {
+
     hideOperationLater();
+
   }
+
 }
 
+
+/* ======================================================
+   RENAME
+   ====================================================== */
+
 async function renameFile(item) {
+
+  registerActivity(true);
+
 
   const newName =
     prompt(
@@ -1662,15 +2450,21 @@ async function renameFile(item) {
       item.name
     );
 
-  if (newName === null) return;
+
+  if (
+    newName === null
+  ) return;
+
 
   const clean =
     newName.trim();
+
 
   if (
     !clean ||
     clean === item.name
   ) return;
+
 
   if (
     clean.includes("/") ||
@@ -1680,7 +2474,9 @@ async function renameFile(item) {
     return alert(
       "Filename cannot contain / or \\."
     );
+
   }
+
 
   if (
     !confirm(
@@ -1688,9 +2484,14 @@ async function renameFile(item) {
     )
   ) return;
 
+
+  registerActivity(true);
+
+
   try {
 
     busy = true;
+
 
     showOperation(
       "Renaming file",
@@ -1698,14 +2499,16 @@ async function renameFile(item) {
       ""
     );
 
+
     const result =
       await protectedRequest(
         "/rename",
         {
-          path: item.path,
-          newName: clean
+          path:item.path,
+          newName:clean
         }
       );
+
 
     if (!result.success) {
 
@@ -1713,7 +2516,9 @@ async function renameFile(item) {
         result.error ||
         "Rename failed."
       );
+
     }
+
 
     showOperation(
       "Rename Complete",
@@ -1721,29 +2526,45 @@ async function renameFile(item) {
       "100%"
     );
 
+
     await refreshAll();
+
 
     hideOperationLater();
 
-  } catch (error) {
+
+  } catch(error) {
 
     showOperation(
       "Rename Failed",
-      "❌ " + error.message,
+      "❌ " +
+      error.message,
       ""
     );
+
 
     alert(
       error.message
     );
 
+
   } finally {
 
     busy = false;
+
   }
+
 }
 
+
+/* ======================================================
+   DELETE
+   ====================================================== */
+
 async function deleteFile(item) {
+
+  registerActivity(true);
+
 
   if (
     !confirm(
@@ -1751,9 +2572,14 @@ async function deleteFile(item) {
     )
   ) return;
 
+
+  registerActivity(true);
+
+
   try {
 
     busy = true;
+
 
     showOperation(
       "Deleting file",
@@ -1761,14 +2587,15 @@ async function deleteFile(item) {
       ""
     );
 
+
     const result =
       await protectedRequest(
         "/delete",
         {
-          path:
-            item.path
+          path:item.path
         }
       );
+
 
     if (!result.success) {
 
@@ -1776,7 +2603,9 @@ async function deleteFile(item) {
         result.error ||
         "Delete failed."
       );
+
     }
+
 
     showOperation(
       "Delete Complete",
@@ -1784,27 +2613,40 @@ async function deleteFile(item) {
       "100%"
     );
 
+
     await refreshAll();
+
 
     hideOperationLater();
 
-  } catch (error) {
+
+  } catch(error) {
 
     showOperation(
       "Delete Failed",
-      "❌ " + error.message,
+      "❌ " +
+      error.message,
       ""
     );
+
 
     alert(
       error.message
     );
 
+
   } finally {
 
     busy = false;
+
   }
+
 }
+
+
+/* ======================================================
+   PROTECTED REQUEST
+   ====================================================== */
 
 async function protectedRequest(
   endpoint,
@@ -1815,31 +2657,40 @@ async function protectedRequest(
     await fetch(
       WORKER_URL + endpoint,
       {
-        method: "POST",
+
+        method:"POST",
 
         headers:
           authHeaders(true),
 
         body:
           JSON.stringify(body)
+
       }
     );
 
+
   const result =
     await safeJSON(response);
+
 
   if (
     response.status === 401
   ) {
 
+    stopInactivityMonitor();
+
     clearSession();
 
     showLogin();
 
+
     throw new Error(
       "Session expired. Please login again."
     );
+
   }
+
 
   if (!response.ok) {
 
@@ -1847,42 +2698,57 @@ async function protectedRequest(
       result.error ||
       "Request failed."
     );
+
   }
 
+
   return result;
+
 }
+
+
+/* ======================================================
+   FILE TO BASE64
+   ====================================================== */
 
 function fileToBase64(file) {
 
   return new Promise(
-    (resolve, reject) => {
+    (resolve,reject) => {
 
       const r =
         new FileReader();
 
-      r.onload = () => {
 
-        const s =
-          String(r.result);
+      r.onload =
+        () => {
 
-        const p =
-          s.indexOf(",");
+          const s =
+            String(r.result);
 
-        if (p < 0) {
 
-          reject(
-            new Error(
-              "Unable to convert file."
-            )
-          );
+          const p =
+            s.indexOf(",");
 
-        } else {
 
-          resolve(
-            s.substring(p + 1)
-          );
-        }
-      };
+          if (p < 0) {
+
+            reject(
+              new Error(
+                "Unable to convert file."
+              )
+            );
+
+          } else {
+
+            resolve(
+              s.substring(p+1)
+            );
+
+          }
+
+        };
+
 
       r.onerror =
         () =>
@@ -1892,20 +2758,30 @@ function fileToBase64(file) {
             )
           );
 
+
       r.readAsDataURL(file);
+
     }
   );
+
 }
+
+
+/* ======================================================
+   DRAG / DROP
+   ====================================================== */
 
 let dragDepth = 0;
 
+
 document.addEventListener(
   "dragenter",
-  (e) => {
+  e => {
 
     e.preventDefault();
 
     dragDepth++;
+
 
     if (
       !busy &&
@@ -1917,46 +2793,60 @@ document.addEventListener(
       $("dropArea")
         .classList
         .add("active");
+
     }
+
   }
 );
 
+
 document.addEventListener(
   "dragover",
-  (e) =>
+  e =>
     e.preventDefault()
 );
 
+
 document.addEventListener(
   "dragleave",
-  (e) => {
+  e => {
 
     e.preventDefault();
 
     dragDepth--;
 
-    if (dragDepth <= 0) {
+
+    if (
+      dragDepth <= 0
+    ) {
 
       dragDepth = 0;
+
 
       $("dropArea")
         .classList
         .remove("active");
+
     }
+
   }
 );
 
+
 document.addEventListener(
   "drop",
-  async (e) => {
+  async e => {
 
     e.preventDefault();
 
+
     dragDepth = 0;
+
 
     $("dropArea")
       .classList
       .remove("active");
+
 
     if (
       busy ||
@@ -1965,17 +2855,29 @@ document.addEventListener(
         .contains("hidden")
     ) return;
 
+
+    registerActivity(true);
+
+
     const files =
       Array.from(
         e.dataTransfer.files
       );
 
+
     if (files.length) {
 
       await uploadFiles(files);
+
     }
+
   }
 );
+
+
+/* ======================================================
+   OPERATION DISPLAY
+   ====================================================== */
 
 function showOperation(
   title,
@@ -1987,31 +2889,33 @@ function showOperation(
     .classList
     .remove("hidden");
 
-  $("operationTitle")
-    .textContent =
+
+  $("operationTitle").textContent =
     title;
 
-  $("operationMessage")
-    .textContent =
+
+  $("operationMessage").textContent =
     message;
 
-  $("operationPercent")
-    .textContent =
+
+  $("operationPercent").textContent =
     percent || "";
+
 
   if (percent) {
 
-    $("operationBar")
-      .style.width =
+    $("operationBar").style.width =
       percent;
 
   } else {
 
-    $("operationBar")
-      .style.width =
+    $("operationBar").style.width =
       "100%";
+
   }
+
 }
+
 
 function hideOperationLater() {
 
@@ -2023,11 +2927,19 @@ function hideOperationLater() {
         $("operation")
           .classList
           .add("hidden");
+
       }
+
     },
     2500
   );
+
 }
+
+
+/* ======================================================
+   FILE COUNT
+   ====================================================== */
 
 function updateCount(files) {
 
@@ -2037,109 +2949,149 @@ function updateCount(files) {
         x.type === "file"
     ).length;
 
+
   const d =
     files.filter(
       x =>
         x.type === "dir"
     ).length;
 
+
   $("fileCount").textContent =
+
     $("searchInput")
       .value
       .trim()
+
       ?
+
       `${files.length} results`
+
       :
+
       `${f} files · ${d} folders`;
+
 }
+
+
+/* ======================================================
+   HELPERS
+   ====================================================== */
 
 function encodePath(path) {
 
   return path
     .split("/")
-    .map(
-      encodeURIComponent
-    )
+    .map(encodeURIComponent)
     .join("/");
+
 }
+
 
 function extension(name) {
 
   const p =
     name.lastIndexOf(".");
 
+
   return p < 0
     ? ""
     : name
-        .substring(p + 1)
+        .substring(p+1)
         .toLowerCase();
+
 }
+
 
 function fileType(name) {
 
   const e =
     extension(name);
 
+
   return e
     ? e.toUpperCase() +
       " File"
     : "File";
+
 }
+
 
 function fileIcon(name) {
 
   const e =
     extension(name);
 
+
   const m = {
+
     ppt:"📊",
     pptx:"📊",
+
     xls:"📗",
     xlsx:"📗",
     csv:"📗",
+
     doc:"📘",
     docx:"📘",
+
     pdf:"📕",
+
     txt:"📄",
     log:"📄",
     md:"📝",
+
     jpg:"🖼️",
     jpeg:"🖼️",
     png:"🖼️",
     gif:"🖼️",
     webp:"🖼️",
     svg:"🖼️",
+
     zip:"📦",
     rar:"📦",
     "7z":"📦",
     tar:"📦",
     gz:"📦",
+
     mp4:"🎬",
     mov:"🎬",
     avi:"🎬",
     mkv:"🎬",
+
     mp3:"🎵",
     wav:"🎵",
+
     html:"🌐",
     css:"🎨",
+
     js:"⚙️",
     json:"⚙️",
+
     py:"🐍",
+
     sh:"💻",
     bat:"💻",
     ps1:"💻"
+
   };
 
-  return m[e] || "📄";
+
+  return m[e] ||
+    "📄";
+
 }
+
 
 function formatBytes(
   bytes,
-  decimals = 1
+  decimals=1
 ) {
 
-  if (!bytes)
+  if (!bytes) {
     return "0 B";
+  }
+
 
   const units = [
     "B",
@@ -2149,44 +3101,57 @@ function formatBytes(
     "TB"
   ];
 
+
   const i =
     Math.min(
+
       Math.floor(
         Math.log(bytes) /
         Math.log(1024)
       ),
+
       units.length - 1
+
     );
+
 
   const n =
     bytes /
-    Math.pow(1024, i);
+    Math.pow(
+      1024,
+      i
+    );
 
-  return n.toFixed(
-    i === 0
-      ? 0
-      : decimals
-  ) +
-  " " +
-  units[i];
+
+  return (
+    n.toFixed(
+      i === 0
+        ? 0
+        : decimals
+    ) +
+    " " +
+    units[i]
+  );
+
 }
+
 
 function escapeHTML(text) {
 
   const d =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
+
 
   d.textContent =
     String(text);
 
+
   return d.innerHTML;
+
 }
 
-async function safeJSON(
-  response
-) {
+
+async function safeJSON(response) {
 
   try {
 
@@ -2195,8 +3160,15 @@ async function safeJSON(
   } catch {
 
     return {};
+
   }
+
 }
+
+
+/* ======================================================
+   START
+   ====================================================== */
 
 initialize();
 
