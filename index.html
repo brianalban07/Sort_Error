@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Brian File Storage</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -22,10 +18,9 @@ body {
     color: #1f2937;
 }
 
-
-/* =========================
+/* ==============================
    HEADER
-========================= */
+============================== */
 
 .header {
     background: linear-gradient(135deg, #1d4ed8, #3b82f6);
@@ -49,10 +44,9 @@ body {
     opacity: 0.9;
 }
 
-
-/* =========================
+/* ==============================
    MAIN
-========================= */
+============================== */
 
 .container {
     max-width: 1100px;
@@ -60,10 +54,9 @@ body {
     padding: 0 15px;
 }
 
-
-/* =========================
+/* ==============================
    TOOLBAR
-========================= */
+============================== */
 
 .toolbar {
     display: flex;
@@ -116,10 +109,9 @@ button {
     background: #1d4ed8;
 }
 
-
-/* =========================
+/* ==============================
    NOTICE
-========================= */
+============================== */
 
 .notice {
     background: #eff6ff;
@@ -131,10 +123,9 @@ button {
     font-size: 13px;
 }
 
-
-/* =========================
+/* ==============================
    BREADCRUMB
-========================= */
+============================== */
 
 .breadcrumb {
     background: white;
@@ -160,10 +151,9 @@ button {
     margin: 0 6px;
 }
 
-
-/* =========================
-   STORAGE CARD
-========================= */
+/* ==============================
+   STORAGE
+============================== */
 
 .storage {
     background: white;
@@ -173,10 +163,9 @@ button {
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-
-/* =========================
+/* ==============================
    TABLE HEADER
-========================= */
+============================== */
 
 .table-header {
     display: grid;
@@ -186,13 +175,11 @@ button {
     color: #6b7280;
     font-size: 12px;
     font-weight: bold;
-    text-transform: uppercase;
 }
 
-
-/* =========================
+/* ==============================
    FILE ROW
-========================= */
+============================== */
 
 .file-row {
     display: grid;
@@ -207,10 +194,9 @@ button {
     background: #f8fafc;
 }
 
-
-/* =========================
-   FILE NAME
-========================= */
+/* ==============================
+   FILE INFORMATION
+============================== */
 
 .file-info {
     display: flex;
@@ -252,20 +238,18 @@ button {
     text-decoration: underline;
 }
 
-
-/* =========================
+/* ==============================
    SIZE
-========================= */
+============================== */
 
 .size {
     color: #6b7280;
     font-size: 13px;
 }
 
-
-/* =========================
+/* ==============================
    ACTION
-========================= */
+============================== */
 
 .action {
     text-align: right;
@@ -298,13 +282,12 @@ button {
     background: #e5e7eb;
 }
 
-
-/* =========================
+/* ==============================
    STATUS
-========================= */
+============================== */
 
 .status {
-    padding: 50px 20px;
+    padding: 55px 20px;
     text-align: center;
     color: #6b7280;
 }
@@ -315,8 +298,7 @@ button {
     border: 4px solid #e5e7eb;
     border-top-color: #2563eb;
     border-radius: 50%;
-    margin: auto;
-    margin-bottom: 15px;
+    margin: auto auto 15px;
     animation: spin 0.8s linear infinite;
 }
 
@@ -330,10 +312,9 @@ button {
     color: #dc2626;
 }
 
-
-/* =========================
-   INFO BAR
-========================= */
+/* ==============================
+   INFO
+============================== */
 
 .info-bar {
     margin-top: 12px;
@@ -344,10 +325,9 @@ button {
     padding: 4px;
 }
 
-
-/* =========================
+/* ==============================
    FOOTER
-========================= */
+============================== */
 
 .footer {
     text-align: center;
@@ -356,10 +336,9 @@ button {
     font-size: 12px;
 }
 
-
-/* =========================
+/* ==============================
    MOBILE
-========================= */
+============================== */
 
 @media (max-width: 700px) {
 
@@ -400,44 +379,34 @@ button {
     .header h1 {
         font-size: 23px;
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
+<!-- ==============================
      HEADER
-========================= -->
+============================== -->
 
 <div class="header">
-
     <div class="header-inner">
 
-        <h1>
-            📁 Brian File Storage
-        </h1>
+        <h1>📁 Brian File Storage</h1>
 
         <p>
             Simple file storage powered by GitHub
         </p>
 
     </div>
-
 </div>
 
 
-<!-- =========================
+<!-- ==============================
      MAIN
-========================= -->
+============================== -->
 
 <div class="container">
-
 
     <!-- TOOLBAR -->
 
@@ -470,10 +439,9 @@ button {
     <!-- NOTICE -->
 
     <div class="notice">
-
-        ℹ️ Upload File opens GitHub's secure upload page.
-        After uploading the file, return here and click Refresh.
-
+        ℹ️ Upload File opens GitHub's upload page.
+        After uploading and committing the file,
+        return here and click Refresh.
     </div>
 
 
@@ -491,19 +459,14 @@ button {
 
     <div class="storage">
 
-
         <div class="table-header">
 
-            <div>
-                Name
-            </div>
+            <div>NAME</div>
 
-            <div>
-                Size
-            </div>
+            <div>SIZE</div>
 
             <div style="text-align:right;">
-                Action
+                ACTION
             </div>
 
         </div>
@@ -520,7 +483,6 @@ button {
             </div>
 
         </div>
-
 
     </div>
 
@@ -539,11 +501,12 @@ button {
 
     </div>
 
-
 </div>
 
 
-<!-- FOOTER -->
+<!-- ==============================
+     FOOTER
+============================== -->
 
 <div class="footer">
 
@@ -551,160 +514,212 @@ button {
 
     <br><br>
 
-    GitHub Pages
+    Powered by GitHub Pages
 
 </div>
 
 
 <script>
 
-/* =========================================================
-   GITHUB SETTINGS
-========================================================= */
+/* =====================================================
+   GITHUB CONFIGURATION
+===================================================== */
 
-var OWNER = "brianalban07";
+const OWNER = "brianalban07";
 
-var REPO = "Sort_Error";
+const REPO = "Sort_Error";
 
-var BRANCH = "main";
-
-var currentPath = "";
-
-var allFiles = [];
+const BRANCH = "main";
 
 
-/* =========================================================
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentPath = "";
+
+let currentFiles = [];
+
+
+/* =====================================================
    ELEMENTS
-========================================================= */
+===================================================== */
 
-var fileList =
+const fileList =
     document.getElementById("fileList");
 
-var fileCount =
+const fileCount =
     document.getElementById("fileCount");
 
-var searchInput =
+const searchInput =
     document.getElementById("searchInput");
 
-var breadcrumb =
+const breadcrumb =
     document.getElementById("breadcrumb");
 
-var uploadButton =
+const uploadButton =
     document.getElementById("uploadButton");
 
-var refreshButton =
+const refreshButton =
     document.getElementById("refreshButton");
 
 
-/* =========================================================
+/* =====================================================
    LOAD FILES
-========================================================= */
+===================================================== */
 
-function loadFiles(path) {
-
-    if (typeof path === "undefined") {
-        path = currentPath;
-    }
+async function loadFiles(path = "") {
 
     currentPath = path;
 
-
-    fileList.innerHTML =
-        '<div class="status">' +
-        '<div class="loader"></div>' +
-        'Loading files...' +
-        '</div>';
-
-
-    fileCount.textContent =
-        "Loading...";
-
+    showLoading();
 
     updateBreadcrumb();
 
 
-    var apiURL =
-        "https://api.github.com/repos/" +
-        OWNER +
-        "/" +
-        REPO +
-        "/contents";
+    try {
+
+        let apiURL =
+            "https://api.github.com/repos/" +
+            OWNER +
+            "/" +
+            REPO +
+            "/contents";
 
 
-    if (currentPath !== "") {
+        /*
+        If inside a folder,
+        add folder path.
+        */
+
+        if (currentPath !== "") {
+
+            apiURL +=
+                "/" +
+                encodeGitHubPath(currentPath);
+
+        }
+
+
+        /*
+        IMPORTANT FIX
+
+        Force MAIN branch
+        and bypass cached API results.
+        */
 
         apiURL +=
-            "/" +
-            encodeGitHubPath(currentPath);
+            "?ref=" +
+            encodeURIComponent(BRANCH) +
+            "&_=" +
+            Date.now();
 
-    }
+
+        console.log(
+            "Loading GitHub API:",
+            apiURL
+        );
 
 
-    fetch(apiURL)
+        const response =
+            await fetch(
+                apiURL,
+                {
+                    method: "GET",
 
-        .then(function(response) {
+                    cache: "no-store",
 
-            if (!response.ok) {
-
-                if (response.status === 404) {
-
-                    throw new Error(
-                        "Repository or folder not found."
-                    );
-
+                    headers: {
+                        "Accept":
+                            "application/vnd.github+json"
+                    }
                 }
+            );
 
-                if (response.status === 403) {
 
-                    throw new Error(
-                        "GitHub API limit reached. Please try again later."
-                    );
+        console.log(
+            "GitHub response:",
+            response.status
+        );
 
-                }
+
+        if (!response.ok) {
+
+            if (response.status === 404) {
 
                 throw new Error(
-                    "GitHub API error: " +
-                    response.status
+                    "Repository or folder not found."
                 );
 
             }
 
 
-            return response.json();
-
-        })
-
-        .then(function(data) {
-
-            if (!Array.isArray(data)) {
+            if (response.status === 403) {
 
                 throw new Error(
-                    "This location is not a folder."
+                    "GitHub API request limit reached. " +
+                    "Please wait and try again."
                 );
 
             }
 
 
-            /*
-             * Hide index.html because it is
-             * the website itself.
-             */
+            throw new Error(
+                "GitHub API returned HTTP " +
+                response.status
+            );
 
-            data = data.filter(function(item) {
-
-                return (
-                    item.name.toLowerCase() !==
-                    "index.html"
-                );
-
-            });
+        }
 
 
-            /*
-             * Sort folders first.
-             */
+        const data =
+            await response.json();
 
-            data.sort(function(a, b) {
+
+        console.log(
+            "GitHub files:",
+            data
+        );
+
+
+        if (!Array.isArray(data)) {
+
+            throw new Error(
+                "GitHub did not return a folder list."
+            );
+
+        }
+
+
+        /*
+        Hide index.html.
+
+        We don't want the website itself
+        appearing as a downloadable file.
+        */
+
+        currentFiles =
+            data.filter(
+                function(item) {
+
+                    return (
+                        item.name
+                            .toLowerCase() !==
+                        "index.html"
+                    );
+
+                }
+            );
+
+
+        /*
+        Sort:
+        folders first
+        files second
+        */
+
+        currentFiles.sort(
+            function(a, b) {
 
                 if (
                     a.type === "dir" &&
@@ -727,46 +742,46 @@ function loadFiles(path) {
 
 
                 return a.name.localeCompare(
-                    b.name
+                    b.name,
+                    undefined,
+                    {
+                        numeric: true,
+                        sensitivity: "base"
+                    }
                 );
 
-            });
+            }
+        );
 
 
-            allFiles = data;
+        renderFiles(
+            currentFiles
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "LOAD ERROR:",
+            error
+        );
 
 
-            displayFiles(allFiles);
+        showError(
+            error.message
+        );
 
-        })
-
-        .catch(function(error) {
-
-            fileList.innerHTML =
-                '<div class="status error">' +
-                '⚠️<br><br>' +
-                '<strong>Unable to load files</strong>' +
-                '<br><br>' +
-                escapeHTML(error.message) +
-                '</div>';
-
-
-            fileCount.textContent =
-                "Unable to load files";
-
-
-            console.error(error);
-
-        });
+    }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    DISPLAY FILES
-========================================================= */
+===================================================== */
 
-function displayFiles(files) {
+function renderFiles(files) {
 
     fileList.innerHTML = "";
 
@@ -775,12 +790,15 @@ function displayFiles(files) {
 
         fileList.innerHTML =
             '<div class="status">' +
-            '📂<br><br>' +
+            '📂' +
+            '<br><br>' +
             'No files found.' +
             '</div>';
 
 
-        updateCount(files);
+        updateFileCount(
+            files
+        );
 
 
         return;
@@ -788,335 +806,386 @@ function displayFiles(files) {
     }
 
 
-    files.forEach(function(item) {
+    files.forEach(
+        function(item) {
 
-        var row =
-            document.createElement("div");
-
-
-        row.className =
-            "file-row";
-
-
-        /* =================================================
-           FOLDER
-        ================================================= */
-
-        if (item.type === "dir") {
-
-            var folderInfo =
-                document.createElement("div");
+            const row =
+                document.createElement(
+                    "div"
+                );
 
 
-            folderInfo.className =
-                "file-info";
+            row.className =
+                "file-row";
 
 
-            var folderIcon =
-                document.createElement("div");
+            /* =============================================
+               FOLDER
+            ============================================= */
 
+            if (item.type === "dir") {
 
-            folderIcon.className =
-                "file-icon";
-
-
-            folderIcon.textContent =
-                "📁";
-
-
-            var folderText =
-                document.createElement("div");
-
-
-            folderText.className =
-                "file-text";
-
-
-            var folderName =
-                document.createElement("div");
-
-
-            folderName.className =
-                "file-name folder-name";
-
-
-            folderName.textContent =
-                item.name;
-
-
-            var folderDescription =
-                document.createElement("div");
-
-
-            folderDescription.className =
-                "file-description";
-
-
-            folderDescription.textContent =
-                "Folder";
-
-
-            folderText.appendChild(
-                folderName
-            );
-
-
-            folderText.appendChild(
-                folderDescription
-            );
-
-
-            folderInfo.appendChild(
-                folderIcon
-            );
-
-
-            folderInfo.appendChild(
-                folderText
-            );
-
-
-            var folderSize =
-                document.createElement("div");
-
-
-            folderSize.className =
-                "size";
-
-
-            folderSize.textContent =
-                "Folder";
-
-
-            var folderAction =
-                document.createElement("div");
-
-
-            folderAction.className =
-                "action";
-
-
-            var openButton =
-                document.createElement("button");
-
-
-            openButton.className =
-                "open-button";
-
-
-            openButton.textContent =
-                "📂 Open";
-
-
-            folderName.onclick =
-                function() {
-
-                    openFolder(
-                        item.path
+                const info =
+                    document.createElement(
+                        "div"
                     );
 
-                };
+
+                info.className =
+                    "file-info";
 
 
-            openButton.onclick =
-                function() {
-
-                    openFolder(
-                        item.path
+                const icon =
+                    document.createElement(
+                        "div"
                     );
 
-                };
+
+                icon.className =
+                    "file-icon";
 
 
-            folderAction.appendChild(
-                openButton
-            );
+                icon.textContent =
+                    "📁";
 
 
-            row.appendChild(
-                folderInfo
-            );
+                const text =
+                    document.createElement(
+                        "div"
+                    );
 
 
-            row.appendChild(
-                folderSize
-            );
+                text.className =
+                    "file-text";
 
 
-            row.appendChild(
-                folderAction
+                const name =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                name.className =
+                    "file-name folder-name";
+
+
+                name.textContent =
+                    item.name;
+
+
+                const description =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                description.className =
+                    "file-description";
+
+
+                description.textContent =
+                    "Folder";
+
+
+                text.appendChild(
+                    name
+                );
+
+
+                text.appendChild(
+                    description
+                );
+
+
+                info.appendChild(
+                    icon
+                );
+
+
+                info.appendChild(
+                    text
+                );
+
+
+                /* SIZE */
+
+                const size =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                size.className =
+                    "size";
+
+
+                size.textContent =
+                    "Folder";
+
+
+                /* ACTION */
+
+                const action =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                action.className =
+                    "action";
+
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                button.className =
+                    "open-button";
+
+
+                button.textContent =
+                    "📂 Open";
+
+
+                button.onclick =
+                    function() {
+
+                        openFolder(
+                            item.path
+                        );
+
+                    };
+
+
+                name.onclick =
+                    function() {
+
+                        openFolder(
+                            item.path
+                        );
+
+                    };
+
+
+                action.appendChild(
+                    button
+                );
+
+
+                row.appendChild(
+                    info
+                );
+
+
+                row.appendChild(
+                    size
+                );
+
+
+                row.appendChild(
+                    action
+                );
+
+            }
+
+
+            /* =============================================
+               FILE
+            ============================================= */
+
+            else {
+
+                const info =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                info.className =
+                    "file-info";
+
+
+                const icon =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                icon.className =
+                    "file-icon";
+
+
+                icon.textContent =
+                    getFileIcon(
+                        item.name
+                    );
+
+
+                const text =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                text.className =
+                    "file-text";
+
+
+                const name =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                name.className =
+                    "file-name";
+
+
+                name.textContent =
+                    item.name;
+
+
+                name.title =
+                    item.name;
+
+
+                const description =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                description.className =
+                    "file-description";
+
+
+                description.textContent =
+                    getFileType(
+                        item.name
+                    );
+
+
+                text.appendChild(
+                    name
+                );
+
+
+                text.appendChild(
+                    description
+                );
+
+
+                info.appendChild(
+                    icon
+                );
+
+
+                info.appendChild(
+                    text
+                );
+
+
+                /* SIZE */
+
+                const size =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                size.className =
+                    "size";
+
+
+                size.textContent =
+                    formatBytes(
+                        item.size
+                    );
+
+
+                /* ACTION */
+
+                const action =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                action.className =
+                    "action";
+
+
+                const download =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                download.className =
+                    "download-button";
+
+
+                download.href =
+                    item.download_url;
+
+
+                download.target =
+                    "_blank";
+
+
+                download.rel =
+                    "noopener noreferrer";
+
+
+                download.innerHTML =
+                    "⬇ " +
+                    '<span class="download-text">' +
+                    "Download" +
+                    "</span>";
+
+
+                action.appendChild(
+                    download
+                );
+
+
+                row.appendChild(
+                    info
+                );
+
+
+                row.appendChild(
+                    size
+                );
+
+
+                row.appendChild(
+                    action
+                );
+
+            }
+
+
+            fileList.appendChild(
+                row
             );
 
         }
+    );
 
 
-        /* =================================================
-           FILE
-        ================================================= */
-
-        else {
-
-            var info =
-                document.createElement("div");
-
-
-            info.className =
-                "file-info";
-
-
-            var icon =
-                document.createElement("div");
-
-
-            icon.className =
-                "file-icon";
-
-
-            icon.textContent =
-                getFileIcon(
-                    item.name
-                );
-
-
-            var text =
-                document.createElement("div");
-
-
-            text.className =
-                "file-text";
-
-
-            var name =
-                document.createElement("div");
-
-
-            name.className =
-                "file-name";
-
-
-            name.textContent =
-                item.name;
-
-
-            var description =
-                document.createElement("div");
-
-
-            description.className =
-                "file-description";
-
-
-            description.textContent =
-                getFileType(
-                    item.name
-                );
-
-
-            text.appendChild(
-                name
-            );
-
-
-            text.appendChild(
-                description
-            );
-
-
-            info.appendChild(
-                icon
-            );
-
-
-            info.appendChild(
-                text
-            );
-
-
-            var size =
-                document.createElement("div");
-
-
-            size.className =
-                "size";
-
-
-            size.textContent =
-                formatBytes(
-                    item.size
-                );
-
-
-            var action =
-                document.createElement("div");
-
-
-            action.className =
-                "action";
-
-
-            var download =
-                document.createElement("a");
-
-
-            download.className =
-                "download-button";
-
-
-            download.href =
-                item.download_url;
-
-
-            download.target =
-                "_blank";
-
-
-            download.rel =
-                "noopener noreferrer";
-
-
-            download.innerHTML =
-                '⬇ <span class="download-text">' +
-                'Download' +
-                '</span>';
-
-
-            action.appendChild(
-                download
-            );
-
-
-            row.appendChild(
-                info
-            );
-
-
-            row.appendChild(
-                size
-            );
-
-
-            row.appendChild(
-                action
-            );
-
-        }
-
-
-        fileList.appendChild(
-            row
-        );
-
-    });
-
-
-    updateCount(files);
+    updateFileCount(
+        files
+    );
 
 }
 
 
-/* =========================================================
+/* =====================================================
    OPEN FOLDER
-========================================================= */
+===================================================== */
 
 function openFolder(path) {
 
@@ -1124,14 +1193,128 @@ function openFolder(path) {
         "";
 
 
-    loadFiles(path);
+    loadFiles(
+        path
+    );
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   REFRESH
+===================================================== */
+
+refreshButton.addEventListener(
+    "click",
+    function() {
+
+        searchInput.value =
+            "";
+
+
+        loadFiles(
+            currentPath
+        );
+
+    }
+);
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+uploadButton.addEventListener(
+    "click",
+    function() {
+
+        let uploadURL =
+            "https://github.com/" +
+            OWNER +
+            "/" +
+            REPO +
+            "/upload/" +
+            BRANCH;
+
+
+        /*
+        If currently inside a folder,
+        upload to that folder.
+        */
+
+        if (currentPath !== "") {
+
+            uploadURL +=
+                "/" +
+                encodeGitHubPath(
+                    currentPath
+                );
+
+        }
+
+
+        window.open(
+            uploadURL,
+            "_blank"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        const keyword =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        if (keyword === "") {
+
+            renderFiles(
+                currentFiles
+            );
+
+
+            return;
+
+        }
+
+
+        const filtered =
+            currentFiles.filter(
+                function(item) {
+
+                    return (
+                        item.name
+                            .toLowerCase()
+                            .includes(
+                                keyword
+                            )
+                    );
+
+                }
+            );
+
+
+        renderFiles(
+            filtered
+        );
+
+    }
+);
+
+
+/* =====================================================
    BREADCRUMB
-========================================================= */
+===================================================== */
 
 function updateBreadcrumb() {
 
@@ -1139,8 +1322,12 @@ function updateBreadcrumb() {
         "";
 
 
-    var home =
-        document.createElement("span");
+    /* HOME */
+
+    const home =
+        document.createElement(
+            "span"
+        );
 
 
     home.className =
@@ -1168,38 +1355,37 @@ function updateBreadcrumb() {
     );
 
 
-    if (
-        currentPath === ""
-    ) {
+    if (currentPath === "") {
 
         return;
 
     }
 
 
-    var pieces =
+    const parts =
         currentPath.split("/");
 
 
-    var path =
+    let builtPath =
         "";
 
 
-    pieces.forEach(
-        function(piece) {
+    parts.forEach(
+        function(part) {
 
-            path =
-                path === ""
-                    ? piece
-                    : path + "/" + piece;
+            if (part === "") {
 
+                return;
 
-            var savedPath =
-                path;
+            }
 
 
-            var separator =
-                document.createElement("span");
+            /* SEPARATOR */
+
+            const separator =
+                document.createElement(
+                    "span"
+                );
 
 
             separator.className =
@@ -1215,8 +1401,34 @@ function updateBreadcrumb() {
             );
 
 
-            var crumb =
-                document.createElement("span");
+            /* PATH */
+
+            if (builtPath === "") {
+
+                builtPath =
+                    part;
+
+            }
+
+            else {
+
+                builtPath +=
+                    "/" +
+                    part;
+
+            }
+
+
+            const savedPath =
+                builtPath;
+
+
+            /* CRUMB */
+
+            const crumb =
+                document.createElement(
+                    "span"
+                );
 
 
             crumb.className =
@@ -1224,7 +1436,7 @@ function updateBreadcrumb() {
 
 
             crumb.textContent =
-                piece;
+                part;
 
 
             crumb.onclick =
@@ -1251,224 +1463,18 @@ function updateBreadcrumb() {
 }
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
-
-searchInput.addEventListener(
-    "input",
-    function() {
-
-        var keyword =
-            searchInput.value
-                .toLowerCase()
-                .trim();
-
-
-        if (
-            keyword === ""
-        ) {
-
-            displayFiles(
-                allFiles
-            );
-
-
-            return;
-
-        }
-
-
-        var filtered =
-            allFiles.filter(
-                function(item) {
-
-                    return (
-                        item.name
-                            .toLowerCase()
-                            .indexOf(
-                                keyword
-                            ) !== -1
-                    );
-
-                }
-            );
-
-
-        displayFiles(
-            filtered
-        );
-
-    }
-);
-
-
-/* =========================================================
-   REFRESH BUTTON
-========================================================= */
-
-refreshButton.addEventListener(
-    "click",
-    function() {
-
-        searchInput.value =
-            "";
-
-
-        loadFiles(
-            currentPath
-        );
-
-    }
-);
-
-
-/* =========================================================
-   UPLOAD BUTTON
-========================================================= */
-
-uploadButton.addEventListener(
-    "click",
-    function() {
-
-        var url =
-            "https://github.com/" +
-            OWNER +
-            "/" +
-            REPO +
-            "/upload/" +
-            BRANCH;
-
-
-        if (
-            currentPath !== ""
-        ) {
-
-            url +=
-                "/" +
-                encodeGitHubPath(
-                    currentPath
-                );
-
-        }
-
-
-        window.open(
-            url,
-            "_blank"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ENCODE GITHUB PATH
-========================================================= */
-
-function encodeGitHubPath(path) {
-
-    return path
-        .split("/")
-        .map(function(part) {
-
-            return encodeURIComponent(
-                part
-            );
-
-        })
-        .join("/");
-
-}
-
-
-/* =========================================================
-   FILE ICONS
-========================================================= */
-
-function getFileIcon(filename) {
-
-    var extension =
-        getExtension(filename);
-
-
-    var icons = {
-
-        "ppt": "📊",
-        "pptx": "📊",
-
-        "xls": "📗",
-        "xlsx": "📗",
-        "csv": "📗",
-
-        "doc": "📘",
-        "docx": "📘",
-
-        "pdf": "📕",
-
-        "txt": "📄",
-        "log": "📄",
-        "md": "📝",
-
-        "zip": "📦",
-        "rar": "📦",
-        "7z": "📦",
-        "tar": "📦",
-        "gz": "📦",
-
-        "jpg": "🖼️",
-        "jpeg": "🖼️",
-        "png": "🖼️",
-        "gif": "🖼️",
-        "webp": "🖼️",
-
-        "mp4": "🎬",
-        "avi": "🎬",
-        "mov": "🎬",
-        "mkv": "🎬",
-
-        "mp3": "🎵",
-        "wav": "🎵",
-
-        "html": "🌐",
-        "css": "🎨",
-        "js": "⚙️",
-        "json": "⚙️",
-
-        "py": "🐍",
-        "sh": "💻",
-        "bat": "💻",
-        "ps1": "💻"
-
-    };
-
-
-    if (
-        icons[extension]
-    ) {
-
-        return icons[extension];
-
-    }
-
-
-    return "📄";
-
-}
-
-
-/* =========================================================
-   GET EXTENSION
-========================================================= */
+/* =====================================================
+   FILE EXTENSION
+===================================================== */
 
 function getExtension(filename) {
 
-    var pieces =
-        filename.split(".");
+    const index =
+        filename.lastIndexOf(".");
 
 
     if (
-        pieces.length < 2
+        index === -1
     ) {
 
         return "";
@@ -1476,26 +1482,28 @@ function getExtension(filename) {
     }
 
 
-    return pieces[
-        pieces.length - 1
-    ].toLowerCase();
+    return filename
+        .substring(
+            index + 1
+        )
+        .toLowerCase();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    FILE TYPE
-========================================================= */
+===================================================== */
 
 function getFileType(filename) {
 
-    var extension =
-        getExtension(filename);
+    const extension =
+        getExtension(
+            filename
+        );
 
 
-    if (
-        extension === ""
-    ) {
+    if (extension === "") {
 
         return "File";
 
@@ -1510,9 +1518,191 @@ function getFileType(filename) {
 }
 
 
-/* =========================================================
+/* =====================================================
+   FILE ICON
+===================================================== */
+
+function getFileIcon(filename) {
+
+    const extension =
+        getExtension(
+            filename
+        );
+
+
+    const icons = {
+
+        /* PowerPoint */
+
+        ppt:
+            "📊",
+
+        pptx:
+            "📊",
+
+
+        /* Excel */
+
+        xls:
+            "📗",
+
+        xlsx:
+            "📗",
+
+        csv:
+            "📗",
+
+
+        /* Word */
+
+        doc:
+            "📘",
+
+        docx:
+            "📘",
+
+
+        /* PDF */
+
+        pdf:
+            "📕",
+
+
+        /* Text */
+
+        txt:
+            "📄",
+
+        log:
+            "📄",
+
+        md:
+            "📝",
+
+
+        /* Images */
+
+        jpg:
+            "🖼️",
+
+        jpeg:
+            "🖼️",
+
+        png:
+            "🖼️",
+
+        gif:
+            "🖼️",
+
+        webp:
+            "🖼️",
+
+        svg:
+            "🖼️",
+
+
+        /* Compressed */
+
+        zip:
+            "📦",
+
+        rar:
+            "📦",
+
+        "7z":
+            "📦",
+
+        tar:
+            "📦",
+
+        gz:
+            "📦",
+
+
+        /* Video */
+
+        mp4:
+            "🎬",
+
+        avi:
+            "🎬",
+
+        mov:
+            "🎬",
+
+        mkv:
+            "🎬",
+
+
+        /* Audio */
+
+        mp3:
+            "🎵",
+
+        wav:
+            "🎵",
+
+        flac:
+            "🎵",
+
+
+        /* Web */
+
+        html:
+            "🌐",
+
+        htm:
+            "🌐",
+
+        css:
+            "🎨",
+
+        js:
+            "⚙️",
+
+        json:
+            "⚙️",
+
+        xml:
+            "⚙️",
+
+
+        /* Scripts */
+
+        py:
+            "🐍",
+
+        sh:
+            "💻",
+
+        bat:
+            "💻",
+
+        ps1:
+            "💻"
+
+    };
+
+
+    if (
+        icons[extension]
+    ) {
+
+        return icons[
+            extension
+        ];
+
+    }
+
+
+    return "📄";
+
+}
+
+
+/* =====================================================
    FILE SIZE
-========================================================= */
+===================================================== */
 
 function formatBytes(bytes) {
 
@@ -1534,15 +1724,16 @@ function formatBytes(bytes) {
     }
 
 
-    var units = [
+    const units = [
         "B",
         "KB",
         "MB",
-        "GB"
+        "GB",
+        "TB"
     ];
 
 
-    var index =
+    let index =
         Math.floor(
             Math.log(bytes) /
             Math.log(1024)
@@ -1559,7 +1750,7 @@ function formatBytes(bytes) {
     }
 
 
-    var result =
+    const result =
         bytes /
         Math.pow(
             1024,
@@ -1572,25 +1763,70 @@ function formatBytes(bytes) {
             index === 0
                 ? 0
                 : 1
-        ) +
-        " " +
+        )
+        +
+        " "
+        +
         units[index]
     );
 
 }
 
 
-/* =========================================================
-   COUNT
-========================================================= */
+/* =====================================================
+   ENCODE PATH
+===================================================== */
 
-function updateCount(files) {
+function encodeGitHubPath(path) {
 
-    var folders =
+    return path
+        .split("/")
+        .map(
+            function(part) {
+
+                return encodeURIComponent(
+                    part
+                );
+
+            }
+        )
+        .join("/");
+
+}
+
+
+/* =====================================================
+   FILE COUNT
+===================================================== */
+
+function updateFileCount(files) {
+
+    const searching =
+        searchInput.value
+            .trim() !== "";
+
+
+    if (searching) {
+
+        fileCount.textContent =
+            files.length +
+            (
+                files.length === 1
+                    ? " result"
+                    : " results"
+            );
+
+
+        return;
+
+    }
+
+
+    let folders =
         0;
 
 
-    var fileTotal =
+    let filesCount =
         0;
 
 
@@ -1607,7 +1843,7 @@ function updateCount(files) {
 
             else {
 
-                fileTotal++;
+                filesCount++;
 
             }
 
@@ -1616,33 +1852,78 @@ function updateCount(files) {
 
 
     fileCount.textContent =
-        fileTotal +
-        " file" +
+        filesCount +
         (
-            fileTotal === 1
-                ? ""
-                : "s"
-        ) +
-        " • " +
+            filesCount === 1
+                ? " file"
+                : " files"
+        )
+        +
+        " • "
+        +
         folders +
-        " folder" +
         (
             folders === 1
-                ? ""
-                : "s"
+                ? " folder"
+                : " folders"
         );
 
 }
 
 
-/* =========================================================
-   BASIC HTML ESCAPE
-========================================================= */
+/* =====================================================
+   LOADING
+===================================================== */
+
+function showLoading() {
+
+    fileList.innerHTML =
+        '<div class="status">' +
+        '<div class="loader"></div>' +
+        'Loading files...' +
+        '</div>';
+
+
+    fileCount.textContent =
+        "Loading...";
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showError(message) {
+
+    fileList.innerHTML =
+        '<div class="status error">' +
+        '⚠️' +
+        '<br><br>' +
+        '<strong>Unable to load files</strong>' +
+        '<br><br>' +
+        escapeHTML(message) +
+        '<br><br>' +
+        'Please refresh the page.' +
+        '</div>';
+
+
+    fileCount.textContent =
+        "Unable to load files";
+
+}
+
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
 
 function escapeHTML(text) {
 
-    var div =
-        document.createElement("div");
+    const div =
+        document.createElement(
+            "div"
+        );
 
 
     div.textContent =
@@ -1654,15 +1935,13 @@ function escapeHTML(text) {
 }
 
 
-/* =========================================================
-   START APPLICATION
-========================================================= */
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
 
 loadFiles("");
 
 </script>
 
-
 </body>
-
 </html>
