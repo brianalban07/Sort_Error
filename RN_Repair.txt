@@ -1,9 +1,0 @@
-RN_Repair.sh
-Auto_Flash_PCIe_FW_local_vm.sh
-PG548_Flash_FRU.sh
-water_flow_check.sh
-timeout_RN.sh
-model_get.sh
-get_sfcs_GETNVFRU2.sh
-control_pg548.sh
-cable_check.sh
